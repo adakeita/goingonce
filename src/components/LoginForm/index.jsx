@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from '@tanstack/react-router';
 import { loginUser } from "../../lib/api";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-        const userData = await loginUser(email, password );
+      const userData = await loginUser(email, password);
+      navigate({ to: "/profile" });
     } catch (error) {
       setErrorMessage(error.message);
     }
@@ -59,7 +62,10 @@ const LoginForm = () => {
             </button>
 
             <div className="not-member">
-              Not a member yet? <a className="register-redirect" href="./register">Click here to register!</a>
+              Not a member yet?{" "}
+              <a className="register-redirect" href="./register">
+                Click here to register!
+              </a>
             </div>
           </div>
         </form>

@@ -2,6 +2,7 @@ import { Router, Route, RootRoute } from "@tanstack/react-router";
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
+import ProfilePage from "./pages/Profile";
 import ListingsPage from "./pages/Listings";
 import ProductPage from "./pages/Product";
 import Root from "./App";
@@ -36,13 +37,13 @@ const listingsRoute = new Route({
   component: ListingsPage,
 });
 
-/*const profileRoute = new Route({
+const profileRoute = new Route({
   getParentRoute: () => rootRoute,
-  path: "/profile/$profileId",
-  component: ProfilesPage,
+  path: "/profile",
+  component: ProfilePage,
 });
 
-const myProfileRoute = new Route({
+/*const myProfileRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/profile",
   component: ProfilePage,
@@ -64,6 +65,7 @@ const routeTree = rootRoute.addChildren([
   indexRoute,
   loginRoute,
   registerRoute,
+  profileRoute,
   listingsRoute,
   productRoute,
 ]);
