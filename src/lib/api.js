@@ -54,6 +54,7 @@ export const loginUser = async (email, password) => {
     const userData = await loginResponse.json();
     localStorage.setItem("jwtToken", userData.accessToken);
     localStorage.setItem("userName", userData.name);
+    console.log("Token set:", localStorage.getItem("jwtToken"));
 
     // Fetch user profile data
     const profileResponse = await fetch(
@@ -136,7 +137,7 @@ export const fetchListings = async (
   try {
     let url = `${
       import.meta.env.VITE_API_BASEURL
-    }/auction/listings?limit=${limit}&offset=${offset}`;
+    }/auction/listings?limit=${limit}&offset=${offset}&_seller=true&_bids=true`;
     if (active) {
       url += "&_active=true";
     }
@@ -155,6 +156,87 @@ export const fetchListings = async (
     return listings;
   } catch (error) {
     console.error("Error fetching listings:", error);
+    throw error;
+  }
+};
+
+//Fetch listing by user
+export const fetchUserListings = async (userName, token) => {
+  try {
+    const url = `${
+      import.meta.env.VITE_API_BASEURL
+    }/auction/profiles/${userName}/listings`;
+    console.log("Fetching listings with URL:", url); // Debug log
+    console.log("Using token:", token); // Debug log
+
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    console.log("Response status:", response.status); // Debug log
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.log("Error data:", errorData); // Debug log
+      throw new Error("Failed to fetch user listings");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching user listings:", error);
+    throw error;
+  }
+};
+
+//Create listing
+export const createListing = async (listingData, token) => {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_BASEURL}/auction/listings`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(listingData),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to create listing");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error creating listing:", error);
+    throw error;
+  }
+};
+
+// delete listing
+
+export const deleteListing = async (listingId, token) => {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_BASEURL}/auction/listings/${listingId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to delete listing");
+    }
+
+    return true; // Successfully deleted
+  } catch (error) {
+    console.error("Error deleting listing:", error);
     throw error;
   }
 };

@@ -1,11 +1,13 @@
- const HomePage = () => {
-    return (
-        <>
-            <div className="home-container">
-                <h1>Home</h1>
-            </div>
-        </>
-    )
-}
+import HomeHero from "../components/HomeHero";
+
+const HomePage = () => {
+  return (
+    <>
+      <div className="home-container">
+        <HomeHero />
+      </div>
+    </>
+  );
+};
 
 export default HomePage;

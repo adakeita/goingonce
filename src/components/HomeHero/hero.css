@@ -1,0 +1,22 @@
+.hero-section {
+    display: flex;
+}
+
+.hero-img-wrapper {
+    width: 40%;
+    object-fit: cover;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text-wrapper {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

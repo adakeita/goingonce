@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import App from './App';
 import { router } from "./root";
 import './index.css'
+import 'tailwindcss/tailwind.css';
 
 const queryClient = new QueryClient();
 

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import ProfileDisplay from "../components/ProfileDisplay";
-import { fetchUserProfile } from "../lib/api"; // Adjust the import path as necessary
+import UserListingsDisplay from "../components/UserListingsDisplay";
+import { fetchUserProfile } from "../lib/api";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("jwtToken"));
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -15,10 +17,10 @@ const ProfilePage = () => {
 
         const profileData = await fetchUserProfile(userName);
         setProfile(profileData);
-        setLoading(false);
       } catch (err) {
         console.error("Error loading profile:", err);
         setError(err.message);
+      } finally {
         setLoading(false);
       }
     };
@@ -34,10 +36,20 @@ const ProfilePage = () => {
     return <p>Error loading profile: {error}</p>;
   }
 
-  return profile ? (
-    <ProfileDisplay profile={profile} />
-  ) : (
-    <p>Profile not found.</p>
+  return (
+    <div>
+      {profile ? (
+        <>
+          <ProfileDisplay profile={profile} />
+          <UserListingsDisplay
+            userName={profile.name}
+            token={localStorage.getItem("jwtToken")}
+          />
+        </>
+      ) : (
+        <p>Profile not found.</p>
+      )}
+    </div>
   );
 };
 
