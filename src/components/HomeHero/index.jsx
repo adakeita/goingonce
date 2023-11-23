@@ -1,4 +1,4 @@
-import heroimage from "../../assets/images/hero-test.png";
+import heroimage from "../../assets/images/sharemore.png";
 import "./hero.css";
 
 const HomeHero = () => {
@@ -6,9 +6,6 @@ const HomeHero = () => {
     <>
       <main className="hero-container">
         <section className="hero-section">
-          <div className="hero-img-wrapper">
-            <img src={heroimage} alt="" className="hero-img" />
-          </div>
           <div className="hero-text-wrapper">
             <h1 className="hero-header">Going Twice</h1>
             <br />
@@ -29,6 +26,9 @@ const HomeHero = () => {
               sell, and swap, you're not just participating in a marketplace;
               you're contributing to a movement.
             </p>
+          </div>
+          <div className="hero-img-wrapper">
+            <img src={heroimage} alt="" className="hero-img" />
           </div>
         </section>
       </main>

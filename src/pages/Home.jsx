@@ -1,5 +1,6 @@
 import HomeHero from "../components/HomeHero";
 import HomeAbout from "../components/HomeAbout";
+import GetStartedCTA from "../components/GetStartedCTA";
 
 const HomePage = () => {
   return (
@@ -7,6 +8,7 @@ const HomePage = () => {
       <div className="home-container">
         <HomeHero />
         <HomeAbout />
+        <GetStartedCTA />
       </div>
     </>
   );
