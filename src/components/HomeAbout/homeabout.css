@@ -1,0 +1,20 @@
+.how-header {
+    text-align: center;
+    margin: 2.5em auto 1.5em;
+    font-size: 20px;
+}
+
+.how-section {
+    margin: 0 auto;
+}
+
+.how-list {
+    display: flex;
+    flex-direction: row
+}
+
+.how-listitem {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 1.2em;
+}

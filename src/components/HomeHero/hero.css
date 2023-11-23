@@ -14,9 +14,26 @@
 }
 
 .hero-text-wrapper {
-    width: 60%;
+    width: 55%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: auto;
+}
+
+
+@media screen and (max-width: 640px) {
+    .hero-section {
+        flex-direction: column;
+    }
+
+    .hero-img-wrapper {
+        width: 100%;
+    }
+
+    .hero-text-wrapper {
+        width: 100%;
+    }
+    
 }
