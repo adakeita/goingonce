@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <div className="flex flex-wrap h-30">
       <section className="relative mx-auto w-screen">
-        <nav className="bg-teal-600 text-white">
+        <nav className="bg-orange-600 text-white">
           {/* Main Flex Container */}
           <div className="flex justify-between items-center px-5 py-6">
             {/* Logo */}

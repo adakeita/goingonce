@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchListings } from "../../lib/api";
 import { filterImageListings, Pagination } from "../UtilComponents";
 import ListingCard from "../ListingCard";
+import "./displaylistings.css";
 
 const DisplayListings = () => {
   const [listings, setListings] = useState([]);
@@ -38,10 +39,12 @@ const DisplayListings = () => {
   }
 
   return (
-    <div>
-      {listings.map((listing) => (
-        <ListingCard key={listing.id} listing={listing} />
-      ))}
+    <div className="listingpage-container">
+      <div className="listings-wrapper">
+        {listings.map((listing) => (
+          <ListingCard key={listing.id} listing={listing} />
+        ))}
+      </div>
       <Pagination
         offset={offset}
         limit={limit}

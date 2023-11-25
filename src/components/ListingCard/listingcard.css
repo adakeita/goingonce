@@ -1,18 +1,23 @@
 .listing-card {
-    max-width: 300px;
-    border: 1px solid white;
-    padding: 1em;
-    margin: 2em auto;
+    width: 220px;
+    height: 355px;
+    border: 1px solid black;
+    padding: 0 0.5em;
+    margin: 2em 1em;
+    border-radius: 5%;
+    box-sizing: border-box;
 }
 
 .listing-card h3 {
-    margin: 0.2em 0 1em;
+    margin: 0 0 0.3em 0.5em;
+    text-align: left;
 }
 
 .baseinfo-wrapper {
     display: flex;
+    font-size: 12px;
     margin: 0 auto 1em;
-    width: 100%;
+    width: 90%;
     justify-content: space-between;
 }
 
@@ -28,7 +33,8 @@
 }
 
 .listing-img-wrapper {
-    margin: auto;
+    width: 200px;
+    height: 200px;
 }
 
 .listing-img {

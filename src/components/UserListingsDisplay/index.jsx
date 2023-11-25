@@ -46,7 +46,7 @@ const UserListingsDisplay = ({ userName, token }) => {
         <div key={listing.id}>
           <ListingCard listing={listing} />
           <button onClick={() => handleDelete(listing.id)}>Delete</button>
-          <button>Edit</button> {/* Implement edit functionality */}
+          <button>Edit</button>
         </div>
       ))}
     </div>

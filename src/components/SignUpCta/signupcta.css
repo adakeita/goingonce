@@ -1,0 +1,40 @@
+.home-ctaregister-section {
+    background: rgb(155, 216, 109);
+    background: linear-gradient(
+        37deg,
+        rgba(155, 216, 109, 0.8) 10%,
+        rgba(133, 198, 232, 0.8) 45%,
+        rgba(243, 157, 43, 0.8) 102%
+    );
+    height: 55vh;
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+}
+
+.register-cta-content {
+    text-align: center;
+    margin: auto;
+    width: 90%;
+}
+
+.register-cta-pitch {
+    margin: 2em auto;
+    color: white;
+}
+
+.register-cta-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.register-cta-btn {
+    border-radius: 10px;
+    font-size: larger;
+    background: white;
+    border: 2px solid black;
+    padding: 15px 40px;
+    margin: 0 auto;
+}

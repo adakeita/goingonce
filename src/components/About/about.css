@@ -1,0 +1,39 @@
+.about-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    min-height: 40vh;
+    background-color: #9fd3e4;
+}
+
+.aboutus-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 3em auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-img-wrapper {
+    width: 30%;
+    margin: 0 1em;
+}
+
+.about-img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+    border-style: ridge;
+    border-radius: 5%;
+    object-fit: cover;
+}
+
+.about-text-wrapper {
+    width: 70%;
+    margin: 0 3em;
+}
+
+.about-text {
+    margin: 0.9em 0;
+}

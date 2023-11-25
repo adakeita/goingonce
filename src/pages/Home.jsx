@@ -1,14 +1,18 @@
 import HomeHero from "../components/HomeHero";
-import HomeAbout from "../components/HomeAbout";
-import GetStartedCTA from "../components/GetStartedCTA";
+import About from "../components/About";
+import NewListingButton from "../components/NewListingButton";
+import HowSection from "../components/HowSection";
+import SignUpCta from "../components/SignUpCta";
 
 const HomePage = () => {
   return (
     <>
       <div className="home-container">
         <HomeHero />
-        <HomeAbout />
-        <GetStartedCTA />
+        <About />
+        <SignUpCta />
+        <HowSection />
+        <NewListingButton />
       </div>
     </>
   );

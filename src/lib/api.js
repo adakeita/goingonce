@@ -137,7 +137,8 @@ export const fetchListings = async (
   try {
     let url = `${
       import.meta.env.VITE_API_BASEURL
-    }/auction/listings?limit=${limit}&offset=${offset}&_seller=true&_bids=true`;
+    }/auction/listings?limit=${limit}&offset=${offset}&_seller=true&_bids=true&sort=created&sortOrder=desc`;
+
     if (active) {
       url += "&_active=true";
     }
@@ -165,7 +166,7 @@ export const fetchUserListings = async (userName, token) => {
   try {
     const url = `${
       import.meta.env.VITE_API_BASEURL
-    }/auction/profiles/${userName}/listings`;
+    }/auction/profiles/${userName}/listings?_seller=true`;
     console.log("Fetching listings with URL:", url); // Debug log
     console.log("Using token:", token); // Debug log
 
@@ -191,7 +192,7 @@ export const fetchUserListings = async (userName, token) => {
 };
 
 //Create listing
-export const createListing = async (listingData, token) => {
+export const CreateListing = async (listingData, token) => {
   try {
     const response = await fetch(
       `${import.meta.env.VITE_API_BASEURL}/auction/listings`,
@@ -206,6 +207,9 @@ export const createListing = async (listingData, token) => {
     );
 
     if (!response.ok) {
+      // Log response for debugging
+      const errorData = await response.json();
+      console.log("API Error:", errorData);
       throw new Error("Failed to create listing");
     }
 

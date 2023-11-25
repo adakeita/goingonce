@@ -1,0 +1,12 @@
+.listingpage-container {
+width: 90vw;
+margin: 0 auto;
+}
+
+.listings-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
