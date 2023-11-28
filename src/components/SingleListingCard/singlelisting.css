@@ -1,0 +1,61 @@
+.singlelisting-card {
+    max-width: 100vw;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    height: 100vh;
+}
+
+.singlelisting-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.slisting-title-seller-bids {
+    display: flex;
+    flex-direction: column;
+    height: 6em;
+    justify-content: space-around;
+}
+
+.slisting-img-wrapper {
+    max-width: 50%;
+    height: 100vh;
+}
+
+.slisting-img {
+    max-width: 100%;
+    object-fit: cover;
+    height: 100%;
+    object-position: center;
+}
+
+.slisting-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40%;
+    margin: 0 auto;
+    padding: 0px 1em;
+}
+
+.seller-create-bids-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.seller-create-bids-wrapper p {
+    font-size: 14px;
+}
+
+.placebid-wrapper {
+    background: #008080;
+    padding: 0.4em 1em;
+    width: 35%;
+    border-radius: 5%;
+    color: white;
+    text-align: center;
+}

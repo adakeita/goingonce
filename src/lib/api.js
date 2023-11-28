@@ -52,9 +52,14 @@ export const loginUser = async (email, password) => {
     }
 
     const userData = await loginResponse.json();
+    console.log("Received User Data:", userData); // Debugging
+
     localStorage.setItem("jwtToken", userData.accessToken);
     localStorage.setItem("userName", userData.name);
+
+    // Debugging - Check if values are set
     console.log("Token set:", localStorage.getItem("jwtToken"));
+    console.log("Username set:", localStorage.getItem("userName"));
 
     // Fetch user profile data
     const profileResponse = await fetch(
@@ -127,7 +132,6 @@ export const fetchUserProfile = async (userName) => {
 };
 
 //Fetch listings
-
 export const fetchListings = async (
   limit = 20,
   offset = 0,
@@ -241,6 +245,26 @@ export const deleteListing = async (listingId, token) => {
     return true; // Successfully deleted
   } catch (error) {
     console.error("Error deleting listing:", error);
+    throw error;
+  }
+};
+
+// Fetch a single listing by ID, including seller and bids information
+export const fetchSingleListing = async (listingId) => {
+  try {
+    const response = await fetch(
+      `${
+        import.meta.env.VITE_API_BASEURL
+      }/auction/listings/${listingId}?_seller=true&_bids=true`
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch listing");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching single listing:", error);
     throw error;
   }
 };

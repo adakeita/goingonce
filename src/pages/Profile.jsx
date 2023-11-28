@@ -13,9 +13,11 @@ const ProfilePage = () => {
     const loadProfile = async () => {
       try {
         const userName = localStorage.getItem("userName");
-        if (!userName) throw new Error("User name not found");
+        if (!userName) throw new Error("Username not found");
+        console.log("Fetching profile for:", userName); // Debugging
 
         const profileData = await fetchUserProfile(userName);
+        console.log("Profile data received:", profileData); // Debugging
         setProfile(profileData);
       } catch (err) {
         console.error("Error loading profile:", err);
@@ -41,10 +43,7 @@ const ProfilePage = () => {
       {profile ? (
         <>
           <ProfileDisplay profile={profile} />
-          <UserListingsDisplay
-            userName={profile.name}
-            token={localStorage.getItem("jwtToken")}
-          />
+          <UserListingsDisplay userName={profile.name} token={token} />
         </>
       ) : (
         <p>Profile not found.</p>

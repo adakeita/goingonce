@@ -16,7 +16,7 @@
 }
 
 .about-img-wrapper {
-    width: 30%;
+    width: 40%;
     margin: 0 1em;
 }
 
@@ -30,10 +30,39 @@
 }
 
 .about-text-wrapper {
-    width: 70%;
+    width: 60%;
     margin: 0 3em;
 }
 
 .about-text {
     margin: 0.9em 0;
+}
+
+@media screen and (max-width: 640px) {
+    .about-section {
+        min-height: 50vh;
+        align-items: center;
+    }
+
+    .aboutus-wrapper {
+        flex-direction: column;
+        width: 100%;
+        margin: 2em auto;
+        align-items: center;
+    }
+
+    .about-img-wrapper {
+        width: 90%;
+        margin: 0.5em auto;
+    }
+
+    .about-text-wrapper {
+        width: 90%;
+        margin: 1em auto;
+        text-align: center;
+    }
+
+    .about-text {
+        margin: 0.5em 0;
+    }
 }

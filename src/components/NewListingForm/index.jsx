@@ -25,18 +25,19 @@ const NewListingForm = () => {
         return;
       }
 
-      // Modify the media field to be an array if it is not empty
+      // Modify the media to be an array
       const submitData = {
         ...formData,
         media: formData.media ? [formData.media] : [],
         tags: formData.tags
           ? formData.tags.split(",").map((tag) => tag.trim())
-          : [], // Convert tags to an array
+          : [], // Convert tags to array
       };
 
-      // Send the modified data to the API
+      // Send data to the API
       const response = await CreateListing(submitData, token);
-      // Handle success - e.g., clear form, show confirmation message, etc.
+      // Handle success
+      
       console.log("Listing created:", response); // Log the response for confirmation
       setFormData({
         title: "",
@@ -44,7 +45,8 @@ const NewListingForm = () => {
         tags: "",
         media: "",
         endsAt: "",
-      }); // Clear the form
+      }); // Clear
+
     } catch (err) {
       setError(err.message);
       console.error("Error submitting form:", err);
@@ -58,14 +60,14 @@ const NewListingForm = () => {
         value={formData.title}
         onChange={handleChange}
         placeholder="Title"
-        required // Title is required
+        required // required
       />
       <textarea
         name="description"
         value={formData.description}
         onChange={handleChange}
         placeholder="Description"
-        required // Description is required
+        required // required
       />
       <input
         name="tags"
@@ -79,14 +81,14 @@ const NewListingForm = () => {
         value={formData.media}
         onChange={handleChange}
         placeholder="Media URL"
-        required // Media URL is required
+        required // required
       />
       <input
         name="endsAt"
         type="datetime-local"
         value={formData.endsAt}
         onChange={handleChange}
-        required // End date is required
+        required //required
       />
       <button type="submit">Create Listing</button>
       {error && <p>{error}</p>}

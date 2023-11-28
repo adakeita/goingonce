@@ -6,7 +6,6 @@ const HowSection = () => {
     <>
       <main className="how-section" id="howSection">
         <div className="how-section-content">
-          <h2 className="how-header">How does it work?</h2>
           <div className="how-wrapper">
             <HowCard
               title="Explore"
