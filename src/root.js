@@ -49,7 +49,7 @@ const profileRoute = new Route({
   component: ProfilePage,
 });*/
 
-const productRoute = new Route({
+const listingRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/product",
   component: ProductPage,
