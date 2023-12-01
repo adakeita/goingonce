@@ -1,0 +1,9 @@
+.change-avatar-btn {
+    padding: 0.2em 0.5em;
+    border: 1px solid white;
+    border-radius: 2em;
+    background-color: #008080;
+    color: #fff;
+    font-size: 0.9em;
+    cursor: pointer;
+}

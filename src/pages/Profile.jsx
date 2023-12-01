@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import ProfileDisplay from "../components/ProfileDisplay";
+import ProfileCard from "../components/ProfileCard";
 import UserListingsDisplay from "../components/UserListingsDisplay";
 import { fetchUserProfile } from "../lib/api";
+import "../pagestyles/profile.css";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState(null);
@@ -39,12 +40,16 @@ const ProfilePage = () => {
   }
 
   return (
-    <div>
+    <div className="page-container">
       {profile ? (
-        <>
-          <ProfileDisplay profile={profile} />
-          <UserListingsDisplay userName={profile.name} token={token} />
-        </>
+        <div className="profilepage">
+          <section className="profile-content">
+            <ProfileCard profile={profile} />
+            <div id="profile-listings">
+              <UserListingsDisplay userName={profile.name} token={token} />
+            </div>
+          </section>
+        </div>
       ) : (
         <p>Profile not found.</p>
       )}

@@ -170,8 +170,7 @@ export const fetchUserListings = async (userName, token) => {
   try {
     const url = `${
       import.meta.env.VITE_API_BASEURL
-    }/auction/profiles/${userName}/listings?_seller=true`;
-    console.log("Fetching listings with URL:", url); // Debug log
+    }/auction/profiles/${userName}/listings?_seller=true?&_bids=true`;
     console.log("Using token:", token); // Debug log
 
     const response = await fetch(url, {
@@ -184,7 +183,6 @@ export const fetchUserListings = async (userName, token) => {
 
     if (!response.ok) {
       const errorData = await response.json();
-      console.log("Error data:", errorData); // Debug log
       throw new Error("Failed to fetch user listings");
     }
 
@@ -265,6 +263,32 @@ export const fetchSingleListing = async (listingId) => {
     return await response.json();
   } catch (error) {
     console.error("Error fetching single listing:", error);
+    throw error;
+  }
+};
+
+export const updateUserAvatar = async (userName, avatarUrl) => {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_BASEURL}/auction/profiles/${userName}/media`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+        },
+        body: JSON.stringify({ avatar: avatarUrl }),
+      }
+    );
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Failed to update avatar");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error updating avatar:", error);
     throw error;
   }
 };

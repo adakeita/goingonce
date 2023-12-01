@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import "./newlistingmodal.css";
+import "./modal.css";
 
-const NewListingModal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children }) => {
     useEffect(() => {
       if (isOpen) {
         document.body.classList.add('no-scroll');
@@ -27,4 +27,4 @@ const NewListingModal = ({ isOpen, onClose, children }) => {
   );
 };
 
-export default NewListingModal;
+export default Modal;

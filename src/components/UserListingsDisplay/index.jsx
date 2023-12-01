@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchUserListings, deleteListing } from "../../lib/api";
-import ListingCard from "../ListingCard";
+import ProfileListingCard from "../ProfileListingCard";
 
 const UserListingsDisplay = ({ userName, token }) => {
   const [listings, setListings] = useState([]);
@@ -11,7 +11,6 @@ const UserListingsDisplay = ({ userName, token }) => {
     const loadUserListings = async () => {
       setLoading(true);
       try {
-        // Pass the token to fetchUserListings
         const userListings = await fetchUserListings(userName, token);
         setListings(userListings);
       } catch (err) {
@@ -41,14 +40,15 @@ const UserListingsDisplay = ({ userName, token }) => {
   }
 
   return (
-    <div>
-      {listings.map((listing) => (
-        <div key={listing.id}>
-          <ListingCard listing={listing} />
-          <button onClick={() => handleDelete(listing.id)}>Delete</button>
-          <button>Edit</button>
-        </div>
-      ))}
+    <div className="profile-listing-container">
+      <h1 className="your-listing-header">Your Listings</h1>
+      <div className="profile-listings-content">
+        {listings.map((listing) => (
+          <div key={listing.id}>
+            <ProfileListingCard listing={listing} onDelete={handleDelete} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

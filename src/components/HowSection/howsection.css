@@ -1,5 +1,5 @@
 .how-section {
-    min-height: 65vh;
+    min-height: 25vh;
     margin: 0 auto;
     background: #adde95;
 }
@@ -9,10 +9,11 @@
 }
 
 .how-wrapper {
+    width: 80vw;
     display: flex;
-    margin: 2em;
-    justify-content: space-evenly;
+    margin: 2em auto;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .how-header {
