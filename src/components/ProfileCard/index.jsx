@@ -12,7 +12,6 @@ const ProfileCard = ({ profile }) => {
         <div className="personalia">
           <div className="profile-email-name">
             <h1 className="profile-name">{profile.name}</h1>
-            <p className="profile-email">{profile.email}</p>
           </div>
           <div className="avatar-wrapper">
             <div className="avatar-img-wrapper">
@@ -31,7 +30,10 @@ const ProfileCard = ({ profile }) => {
           </div>
         </div>
         <div className="credit-container">
-          <p className="profileCredits">Credits: {profile.credits}</p>
+          <div className="current-credits-container">
+            <p className="currentCredits">Your Credits</p>
+            <p className="currentCreditsNumber">{profile.credits}</p>
+          </div>
         </div>
       </div>
     </section>

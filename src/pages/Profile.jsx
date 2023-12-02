@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ProfileCard from "../components/ProfileCard";
 import UserListingsDisplay from "../components/UserListingsDisplay";
 import { fetchUserProfile } from "../lib/api";
+import NewListingButton from "../components/NewListingButton";
 import "../pagestyles/profile.css";
 
 const ProfilePage = () => {
@@ -53,6 +54,7 @@ const ProfilePage = () => {
       ) : (
         <p>Profile not found.</p>
       )}
+      <NewListingButton />
     </div>
   );
 };

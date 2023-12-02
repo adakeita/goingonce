@@ -40,21 +40,25 @@
 .profile-avatar {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 15%;
     object-fit: cover;
 }
 
 .credit-container {
     display: flex;
-    width: 145px;
-    height: 40px;
-    border-radius: 5px 50px;
+    background: #ffa50047;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
     border: 2px solid orange;
+    border-style: double;
     align-items: center;
     justify-content: center;
-    margin: 2em auto;
+    margin: 3em auto;
 }
 
-.profileCredits {
-    text-align: center;
+.current-credits-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

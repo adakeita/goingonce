@@ -9,7 +9,7 @@
 }
 
 .profile-listings-content {
-    padding: 1em 0em;
+    padding: 0em 1em;
     background-color: rgb(173 222 149 / 43%);
     display: flex;
     flex-direction: row;
