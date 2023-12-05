@@ -6,8 +6,6 @@ const ListingPage = () => {
   const search = useSearch();
   const listingId = search.listingId;
 
-  console.log("Retrieved Listing ID:", listingId);
-
   return (
     <div className="product-container">
       {listingId && <DisplaySingleListing listingId={listingId} />}

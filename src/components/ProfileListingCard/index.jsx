@@ -1,16 +1,32 @@
 import { Link } from "@tanstack/react-router";
+import ListingMenuBtn from "../ListingMenuBtn";
 import "./profilelistingcard.css";
 
-const ProfileListingCard = ({ listing, OnDelete }) => {
+const ProfileListingCard = ({ listing, token, setShouldRefresh }) => {
+  console.log("Token in ProfileListingCard:", token);
+
   const highestBid = listing.bids?.reduce(
     (max, bid) => (bid.amount > max ? bid.amount : max),
     0
   );
 
+  const initialListingData = { ...listing };
+
   return (
-    <Link to={`/listing?listingId=${listing.id}`} className="listing-card-link">
-      <div className="profile-listing-card">
+    <div className="profile-listing-card">
+      <div className="profile-listing-header">
         <h3 className="profile-listing-title">{listing.title}</h3>
+        <ListingMenuBtn
+          listingId={listing.id}
+          token={token}
+          initialListingData={initialListingData}
+          setShouldRefresh={setShouldRefresh}
+        />
+      </div>
+      <Link
+        to={`/listing?listingId=${listing.id}`}
+        className="listing-card-link"
+      >
         <div className="profile-listing-img-wrapper">
           <img
             src={listing.media[0]}
@@ -29,11 +45,8 @@ const ProfileListingCard = ({ listing, OnDelete }) => {
             <p>{highestBid} Credits</p>
           </div>
         </div>
-        <div className="listing-actions">
-          <button onClick={() => OnDelete(listing.id)}>Delete</button>
-        </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

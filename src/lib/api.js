@@ -5,6 +5,7 @@
 // User Authentication
 // -------------------
 
+
 //Register user
 export const registerUser = async (userData) => {
   // If the avatar is not provided, remove it from request body
@@ -111,6 +112,7 @@ export const loginUser = async (email, password) => {
 // User Profile
 // ----------------
 
+
 //Fetch user profile
 export const fetchUserProfile = async (userName) => {
   try {
@@ -168,9 +170,11 @@ export const updateUserAvatar = async (userName, avatarUrl) => {
   }
 };
 
+
 // ----------------
 // Listings Management
 // ----------------
+
 
 //Fetch listings
 export const fetchListings = async (
@@ -212,7 +216,6 @@ export const fetchUserListings = async (userName, token) => {
     const url = `${
       import.meta.env.VITE_API_BASEURL
     }/auction/profiles/${userName}/listings?_seller=true?&_bids=true`;
-    console.log("Using token:", token); // Debug log
 
     const response = await fetch(url, {
       headers: {
