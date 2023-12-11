@@ -1,8 +1,3 @@
-.listingpage-container {
-width: 90vw;
-margin: 0 auto;
-}
-
 .listings-wrapper {
     display: flex;
     flex-direction: row;

@@ -40,17 +40,20 @@ const DisplayListings = () => {
 
   return (
     <div className="listingpage-container">
-      <div className="listings-wrapper">
-        {listings.map((listing) => (
-          <ListingCard key={listing.id} listing={listing} />
-        ))}
+      <div className="listingpage-content">
+        <h1>Listings</h1>
+        <div className="listings-wrapper">
+          {listings.map((listing) => (
+            <ListingCard key={listing.id} listing={listing} />
+          ))}
+        </div>
+        <Pagination
+          offset={offset}
+          limit={limit}
+          setOffset={setOffset}
+          hasMore={hasMoreListings}
+        />
       </div>
-      <Pagination
-        offset={offset}
-        limit={limit}
-        setOffset={setOffset}
-        hasMore={hasMoreListings}
-      />
     </div>
   );
 };
