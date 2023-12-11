@@ -33,11 +33,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding: 2em 1.5em;
 }
 
 .profile-listings-content {
-    padding: 0em 1em;
-    background-color: rgb(173 222 149 / 43%);
+    padding: 1em 1em;
     display: flex;
     flex-direction: row;
     border-radius: 20px;
@@ -86,4 +86,80 @@
 .profile-highest-bid p {
     font-size: 12px;
     font-style: italic;
+}
+
+@media screen and (max-width: 639px) {
+    .user-info {
+        flex-direction: column;
+    }
+
+    .profile-card-content {
+        flex-direction: column-reverse;
+    }
+
+    .profile-email-name {
+        margin: 1em auto;
+    }
+
+    .profile-name {
+        font-size: 6vw;
+    }
+
+    .profile-email {
+        font-size: 16px;
+    }
+
+    .change-avatar-btn {
+        margin: 1em auto;
+        width: 100%;
+        padding: 0.5em 2.6em;
+        border: 1px solid white;
+        border-radius: 5px;
+        background-color: #008080;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .avatar-img-wrapper {
+        width: 185px;
+        height: 185px;
+    }
+
+    .credit-container {
+        width: 185px;
+        border-radius: 45% 5%;
+        margin: 2em auto;
+    }
+
+    .profile-listings-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-listing-card {
+        width: 250px;
+        height: 320px;
+    }
+
+    .profile-listing-img-wrapper {
+        width: 175px;
+        height: 115px;
+    }
+
+    .profile-bid-count {
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .profile-highest-bid {
+        font-size: 18px;
+    }
+
+    .profile-highest-bid p {
+        font-size: 16px;
+        font-style: italic;
+    }
+
+
 }

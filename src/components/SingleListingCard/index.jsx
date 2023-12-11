@@ -1,7 +1,8 @@
 import "./singlelisting.css";
 import BidCountdown from "../BidCountdown";
+import BidBtn from "../BidBtn";
 
-const SingleListingCard = ({ listing }) => {
+const SingleListingCard = ({ listing, onBidSuccess }) => {
   const highestBid = listing.bids?.reduce(
     (max, bid) => (bid.amount > max ? bid.amount : max),
     0
@@ -36,9 +37,7 @@ const SingleListingCard = ({ listing }) => {
             <p>{listing.description}</p>
           </div>
           <div className="placebid-wrapper">
-            <button className="placebid-btn">
-                Bid on this!
-            </button>
+            <BidBtn listingId={listing.id} onBidSuccess={onBidSuccess} />
           </div>
           <BidCountdown endsAt={listing.endsAt} />
           <p>Ends: {new Date(listing.endsAt).toLocaleDateString()}</p>

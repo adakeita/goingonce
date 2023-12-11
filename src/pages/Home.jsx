@@ -12,7 +12,6 @@ const HomePage = () => {
         <About />
         <SignUpCta />
         <HowSection />
-        <NewListingButton />
       </div>
     </>
   );

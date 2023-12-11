@@ -1,10 +1,8 @@
 //api util functions
 
-
 // -------------------
 // User Authentication
 // -------------------
-
 
 //Register user
 export const registerUser = async (userData) => {
@@ -107,11 +105,9 @@ export const loginUser = async (email, password) => {
   }
 };
 
-
 // ----------------
 // User Profile
 // ----------------
-
 
 //Fetch user profile
 export const fetchUserProfile = async (userName) => {
@@ -170,11 +166,9 @@ export const updateUserAvatar = async (userName, avatarUrl) => {
   }
 };
 
-
 // ----------------
 // Listings Management
 // ----------------
-
 
 //Fetch listings
 export const fetchListings = async (
@@ -338,4 +332,29 @@ export const deleteListing = async (listingId, token) => {
   }
 };
 
+// Place a bid on a listing
+export const placeBid = async (listingId, token, bidAmount) => {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_BASEURL}/auction/listings/${listingId}/bids`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ amount: bidAmount }),
+      }
+    );
 
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Failed to place bid");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error placing bid:", error);
+    throw error;
+  }
+};

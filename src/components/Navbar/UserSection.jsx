@@ -1,6 +1,6 @@
 // UserProfileSection.js
 import { Link } from "@tanstack/react-router";
-import profileIcon from "../../assets/profile-white.svg";
+import profileIcon from "../../assets/profile-black.svg";
 import notificationIcon from "../../assets/notification-white.svg";
 
 const UserNavSection = ({ isLoggedIn, handleLogout }) => {

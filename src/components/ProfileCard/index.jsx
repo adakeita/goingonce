@@ -9,31 +9,20 @@ const ProfileCard = ({ profile }) => {
   return (
     <section className="profile-card">
       <div className="profile-card-content">
-        <div className="personalia">
-          <div className="profile-email-name">
-            <h1 className="profile-name">{profile.name}</h1>
+        <div className="avatar-wrapper">
+          <div className="avatar-img-wrapper">
+            <img className="profile-avatar" src={profile.avatar} alt="Avatar" />
           </div>
-          <div className="avatar-wrapper">
-            <div className="avatar-img-wrapper">
-              <img
-                className="profile-avatar"
-                src={profile.avatar}
-                alt="Avatar"
-              />
-            </div>
-            <ChangeAvatarBtn
-              className="change-avatar-btn"
-              userName={userName}
-              currentAvatar={updatedAvatar}
-              onUpdateSuccess={setUpdatedAvatar}
-            />
-          </div>
+          <ChangeAvatarBtn
+            className="change-avatar-btn"
+            userName={userName}
+            currentAvatar={updatedAvatar}
+            onUpdateSuccess={setUpdatedAvatar}
+          />
         </div>
-        <div className="credit-container">
-          <div className="current-credits-container">
-            <p className="currentCredits">Your Credits</p>
-            <p className="currentCreditsNumber">{profile.credits}</p>
-          </div>
+        <div className="profile-email-name">
+          <h1 className="profile-name">{profile.name}</h1>
+          <p className="profile-email">{profile.email}</p>
         </div>
       </div>
     </section>

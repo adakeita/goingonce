@@ -4,6 +4,7 @@ import DropdownMenu from "./DropDownMenu";
 import NavigationLinks from "./NavigationLinks";
 import UserNavSection from "./UserSection";
 import HamburgerMenuButton from "./HamburgerButton";
+import Logo from "../../assets/images/logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,35 +21,41 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex flex-wrap h-30">
-      <section className="relative mx-auto w-screen">
-        <nav className="bg-orange-600 text-white">
+    <div className="navbar-container flex flex-wrap h-30">
+      <section className="navbar-section relative mx-5 w-screen">
+        <nav className="navbar text-black">
           {/* Main Flex Container */}
-          <div className="flex justify-between items-center px-5 py-6">
+          <div className="navbar-main flex justify-between items-center mx-3 py-5">
             {/* Logo */}
-            <Link to="/" className="text-3xl font-bold font-heading">
-              Logo Here.
+            <Link
+              to="/"
+              className="navbar-logo"
+            >
+              <div className="logo-container w-3/4">
+              <img src={Logo} alt="Logo" className="logo-img w-full" />
+              </div>
             </Link>
-            {/* Hamburger Menu Button for Smaller Screens */}
-            <HamburgerMenuButton
-              toggleMenu={toggleMenu}
-              isMenuOpen={isMenuOpen}
-              className="sm:hidden"
-            />
+
+            {/* Navigation Links for Larger Screens */}
+            <div className="navbar-links-container hidden sm:flex justify-center ">
+              <NavigationLinks />
+            </div>
 
             {/* UserNavSection for Larger Screens */}
-            <div className="hidden sm:flex items-center justify-end px-4">
+            <div className="navbar-user-section hidden sm:flex items-center justify-end">
               <UserNavSection
                 isLoggedIn={isLoggedIn}
                 handleLogout={handleLogout}
               />
             </div>
-          </div>
-          {/*Navigation Links for Larger Screens*/} 
-          <div className="navigation-links hidden sm:flex justify-evenly pb-4">
-              <NavigationLinks />
-            </div>
 
+            {/* Hamburger Menu Button for Smaller Screens */}
+            <HamburgerMenuButton
+              toggleMenu={toggleMenu}
+              isMenuOpen={isMenuOpen}
+              className="navbar-hamburger sm:hidden"
+            />
+          </div>
 
           {/* Dropdown Menu for Smaller Screens */}
           <DropdownMenu

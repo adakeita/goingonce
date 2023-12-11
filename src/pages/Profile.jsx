@@ -3,6 +3,7 @@ import ProfileCard from "../components/ProfileCard";
 import UserListingsDisplay from "../components/UserListingsDisplay";
 import NewListingButton from "../components/NewListingButton";
 import "../pagestyles/profile.css";
+import CreditContainer from "../components/CreditContainer";
 
 const ProfilePage = () => {
   const userName = localStorage.getItem("userName");
@@ -20,12 +21,15 @@ const ProfilePage = () => {
   return (
     <div className="page-container">
       {profile ? (
-          <main id="profileContent">
+        <main id="profileContent">
+          <section className="user-info">
             <ProfileCard profile={profile} />
-            <section className="user-bids-listing">
+            <CreditContainer profile={profile} />
+          </section>
+          <section className="user-bids-listing">
             <UserListingsDisplay userName={profile.name} token={token} />
-            </section>
-          </main>
+          </section>
+        </main>
       ) : (
         <p>Profile not found.</p>
       )}

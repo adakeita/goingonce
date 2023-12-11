@@ -1,16 +1,14 @@
-// DropdownMenu.js
 import { Link } from "@tanstack/react-router";
-import profileIcon from "../../assets/profile-white.svg";
+import profileIcon from "../../assets/profile-black.svg";
 import notificationIcon from "../../assets/notification-white.svg";
 
 const DropdownMenu = ({ isMenuOpen, isLoggedIn, handleLogout }) => {
   if (!isMenuOpen) return null;
 
   return (
-    <div className="px-5 py-3">
+    <div className="dropdown-content px-5 py-3">
       <ul className="font-semibold font-heading space-y-3">
         <li><Link to="/listings" className="hover:text-gray-200">Listings</Link></li>
-        <li><Link to="/about" className="hover:text-gray-200">About</Link></li>
       </ul>
       {isLoggedIn ? (
         <div className="mt-3 space-x-3">
