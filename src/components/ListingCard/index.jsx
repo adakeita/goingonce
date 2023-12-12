@@ -7,7 +7,7 @@ const ListingCard = ({ listing }) => {
     <Link to={`/listing?listingId=${listing.id}`} className="listing-card-link">
       <div className="listing-card">
         <div className="listingcard-content">
-          <div className="listing-title">
+          <div className="listingcard-title">
             <h3>{listing.title}</h3>
           </div>
           <div className="baseinfo-wrapper">

@@ -5,3 +5,23 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    padding: 2em 0;
+    margin: 0 auto;
+    max-width: 50vw;
+
+}
+
+.next-btn,
+.previous-btn {
+    background: #008080;
+    padding: 1vw 0;
+    color: white;
+    border-radius: 10px;
+    margin: 0 1em;
+    width: 110px;
+    box-shadow: 1px 2px 1px 1px rgb(85 128 133 / 50%);
+}

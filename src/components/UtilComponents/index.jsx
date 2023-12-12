@@ -16,9 +16,9 @@ export const Pagination = ({ offset, limit, setOffset, hasMore }) => {
     };
 
     return (
-        <div>
-            {offset > 0 && <button onClick={handlePrevClick}>Previous</button>}
-            {hasMore && <button onClick={handleNextClick}>Next</button>}
+        <div className="pagination-container">
+            {offset > 0 && <button className="previous-btn" onClick={handlePrevClick}>&larr; Previous</button>}
+            {hasMore && <button className="next-btn" onClick={handleNextClick}>Next &rarr;</button>}
         </div>
     );
 };
