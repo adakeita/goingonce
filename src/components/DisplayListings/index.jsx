@@ -10,7 +10,7 @@ const DisplayListings = () => {
   const [error, setError] = useState(null);
   const [offset, setOffset] = useState(0);
   const [hasMoreListings, setHasMoreListings] = useState(false);
-  const limit = 20;
+  const limit = 18;
 
   useEffect(() => {
     const loadListings = async () => {

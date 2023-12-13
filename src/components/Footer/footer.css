@@ -1,0 +1,57 @@
+.main-footer {
+    background-color: white;
+    padding: 1em 0;
+    margin-top: 1em;
+    width: 100vw;
+}
+
+.footer-content {
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+}
+
+.footer-right {
+    width: 20%;
+    height: 100%;
+
+}
+.footer-middle {
+    width: 40%;
+    height: 100%;
+}
+
+.footer-left {
+    width: 40%;
+}
+
+.footer-logo-wrapper {
+    width: 80%;
+}
+
+.footer-links-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links-container a {
+    margin: 0.5em 0;
+    color: black;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.github-container {
+    width: 20%;
+}
