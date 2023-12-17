@@ -20,14 +20,18 @@ const BidForm = ({ listingId, onBidSuccess }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="bidform" onSubmit={handleSubmit}>
+      <label htmlFor="bid-input" className="visually-hidden">Bid input</label>
       <input
+        className="bid-input"
         type="number"
         value={bidAmount}
         onChange={(e) => setBidAmount(e.target.value)}
         placeholder="Enter your bid"
       />
-      <button type="submit">Place Bid</button>
+      <button className="submit-bid-btn" type="submit">
+        Place Bid
+      </button>
       {error && <p className="error">{error}</p>}
     </form>
   );

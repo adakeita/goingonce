@@ -11,7 +11,6 @@
     border-radius: 5px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
-    margin: 1em;
     align-items: center;
     justify-content: space-evenly;
     box-shadow: 1px 2px 1px 1px rgb(203 190 158 / 66%);
@@ -42,6 +41,9 @@
     flex-direction: row;
     border-radius: 20px;
     width: 100%;
+    overflow-x: scroll;
+    margin: auto;
+    justify-content: space-between;
 }
 
 .your-listing-header {
@@ -134,6 +136,7 @@
     .profile-listingcard {
         width: 250px;
         height: 320px;
+        margin: 1em;
     }
 
     .profilelisting-img-container {

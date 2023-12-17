@@ -4,6 +4,10 @@
 // User Authentication
 // -------------------
 
+
+const baseUrl = "https://api.noroff.dev/api/v1";
+
+
 //Register user
 export const registerUser = async (userData) => {
   // If the avatar is not provided, remove it from request
@@ -13,7 +17,7 @@ export const registerUser = async (userData) => {
 
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/auth/register`,
+      `${baseUrl}/auction/auth/register`,
       {
         method: "POST",
         headers: {
@@ -40,7 +44,7 @@ export const registerUser = async (userData) => {
 export const loginUser = async (email, password) => {
   try {
     const loginResponse = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/auth/login`,
+      `${baseUrl}/auction/auth/login`,
       {
         method: "POST",
         headers: {
@@ -67,7 +71,7 @@ export const loginUser = async (email, password) => {
 
     // Fetch user profile data
     const profileResponse = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/profiles/${userData.name}`,
+      `${baseUrl}/auction/profiles/${userData.name}`,
       {
         headers: {
           Authorization: `Bearer ${userData.accessToken}`,
@@ -118,7 +122,7 @@ export const fetchUserProfile = async (userName) => {
     }
 
     const profileResponse = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/profiles/${userName}`,
+      `${baseUrl}/auction/profiles/${userName}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -143,7 +147,7 @@ export const fetchUserProfile = async (userName) => {
 export const updateUserAvatar = async (userName, avatarUrl) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/profiles/${userName}/media`,
+      `${baseUrl}/auction/profiles/${userName}/media`,
       {
         method: "PUT",
         headers: {
@@ -179,7 +183,7 @@ export const fetchListings = async (
 ) => {
   try {
     let url = `${
-      import.meta.env.VITE_API_BASEURL
+      baseUrl
     }/auction/listings?limit=${limit}&offset=${offset}&_seller=true&_bids=true&sort=created&sortOrder=desc`;
 
     if (active) {
@@ -208,7 +212,7 @@ export const fetchListings = async (
 export const fetchUserListings = async (userName, token) => {
   try {
     const url = `${
-      import.meta.env.VITE_API_BASEURL
+      baseUrl
     }/auction/profiles/${userName}/listings?_seller=true?&_bids=true`;
 
     const response = await fetch(url, {
@@ -236,7 +240,7 @@ export const fetchSingleListing = async (listingId) => {
   try {
     const response = await fetch(
       `${
-        import.meta.env.VITE_API_BASEURL
+        baseUrl
       }/auction/listings/${listingId}?_seller=true&_bids=true`
     );
 
@@ -255,7 +259,7 @@ export const fetchSingleListing = async (listingId) => {
 export const CreateListing = async (listingData, token) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/listings`,
+      `${baseUrl}/auction/listings`,
       {
         method: "POST",
         headers: {
@@ -284,7 +288,7 @@ export const CreateListing = async (listingData, token) => {
 export const updateListing = async (listingId, token, updatedListingData) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/listings/${listingId}`,
+      `${baseUrl}/auction/listings/${listingId}`,
       {
         method: "PUT",
         headers: {
@@ -312,7 +316,7 @@ export const updateListing = async (listingId, token, updatedListingData) => {
 export const deleteListing = async (listingId, token) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/listings/${listingId}`,
+      `${baseUrl}/auction/listings/${listingId}`,
       {
         method: "DELETE",
         headers: {
@@ -336,7 +340,7 @@ export const deleteListing = async (listingId, token) => {
 export const placeBid = async (listingId, token, bidAmount) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/listings/${listingId}/bids`,
+      `${baseUrl}/auction/listings/${listingId}/bids`,
       {
         method: "POST",
         headers: {
