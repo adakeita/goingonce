@@ -41,6 +41,7 @@
     flex-direction: row;
     border-radius: 20px;
     width: 100%;
+    max-width: 750px;
     overflow-x: scroll;
     margin: auto;
     justify-content: space-between;

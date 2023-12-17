@@ -19,6 +19,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 90vw;
+    max-width: 930px;
     margin: auto;
 }
 
