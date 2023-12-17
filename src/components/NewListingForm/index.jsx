@@ -135,7 +135,9 @@ const NewListingForm = () => {
           Create Listing
         </button>
       </div>
-      <div className="message-display">{error && <p>{error}</p>}</div>
+      <div className="message-display">
+        {successMessage && <p>{successMessage}</p>}
+        {error && <p>{error}</p>}</div>
     </form>
   );
 };
