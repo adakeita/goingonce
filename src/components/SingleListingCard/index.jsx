@@ -1,6 +1,6 @@
-import "./singlelisting.css";
 import BidCountdown from "../BidCountdown";
 import BidBtn from "../BidBtn";
+import "./singlelisting.css";
 
 const SingleListingCard = ({ listing, onBidSuccess }) => {
   const highestBid = listing.bids?.reduce(

@@ -1,8 +1,8 @@
 .singlelisting-card {
     max-width: 95vw;
     margin: 0 auto;
-    background-color:#ffe6eaa1;
-    height: 100vh;
+    background-color: #ffdfc852;
+    min-height: 100vh;
     border: 1px solid #0f766e;
 }
 
@@ -102,7 +102,6 @@
     text-align: end;
 }
 
-
 @media screen and (max-width: 768px) {
     .singlelisting-content {
         flex-direction: column;
@@ -123,14 +122,14 @@
     .singlelisting-info-wrapper {
         width: 100%;
         max-width: 515px;
-        margin: 0 auto;
+        margin: 20px auto;
         padding: 0px 1em;
         height: 100%;
     }
 
     .singlelisting-title-seller-bids {
-        height: 30%;
         justify-content: space-evenly;
+        margin: 15px 0;
     }
 
     .seller-created-bids-wrapper {
@@ -143,7 +142,7 @@
     }
 
     .placebid-btn {
+        margin: 20px auto;
         width: 100%;
     }
-    
 }

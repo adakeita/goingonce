@@ -42,7 +42,7 @@
     flex-direction: row;
     border-radius: 20px;
     width: 100%;
-    max-width: 750px;
+    max-width: 925px;
     overflow-x: scroll;
     margin: auto;
     justify-content: space-between;
@@ -133,6 +133,7 @@
     .profile-listings-content {
         flex-direction: column;
         align-items: center;
+        overflow-x: hidden;
     }
 
     .profile-listingcard {
