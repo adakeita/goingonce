@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { deleteListing } from '../../lib/api';
+import './delete.css';
 
 const DeleteBtn = ({ listingId, token, setShouldRefresh }) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -20,15 +21,16 @@ const DeleteBtn = ({ listingId, token, setShouldRefresh }) => {
   return (
     <div>
       {showConfirmation ? (
-        <div>
-          <p>Are you sure you want to delete this listing?</p>
-          <button onClick={handleDelete}>Yes</button>
-          <button onClick={() => setShowConfirmation(false)}>No</button>
+        <div className='deleteconfirmation-container'>
+          <p className='deleteconfirmation-txt'>Are you sure you want to delete this listing?</p>
+          <div className="permadeletebtn-container">
+          <button className='deleteconfirmation-btn yes' onClick={handleDelete}>Yes</button>
+          <button className='deleteconfirmation-btn no' onClick={() => setShowConfirmation(false)}>No</button>
+          </div>
         </div>
       ) : (
-        <button onClick={() => setShowConfirmation(true)}>Delete Listing</button>
+        <button className='deletebtn-main' onClick={() => setShowConfirmation(true)}>Delete Listing</button>
       )}
-
       {showMessage && <p>Listing deleted</p>}
       {error && <p>Error: {error}</p>}
     </div>
