@@ -154,7 +154,7 @@ const RegisterForm = () => {
                 onChange={handlePasswordChange}
               />
               <button
-                className="view-input-btn bg-teal-800"
+                className="view-input-btn bg-teal-700"
                 type="button"
                 onClick={togglePasswordVisibility}
               >
@@ -189,7 +189,7 @@ const RegisterForm = () => {
                 onChange={handleConfirmPasswordChange}
               />
               <button
-                className="view-input-btn bg-teal-800"
+                className="view-input-btn bg-teal-700"
                 type="button"
                 onClick={toggleConfirmPasswordVisibility}
               >

@@ -9,8 +9,10 @@
     justify-content: space-evenly;
     align-items: center;
     height: 60vh;
+    margin: 2em auto;
     max-width: 355px;
     background-color: #f9f9f9bd;
+    border-radius: 10px;
     box-shadow: 3px 4px 0px 0px #b87e6980;
 }
 

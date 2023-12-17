@@ -36,9 +36,12 @@ const Footer = () => {
                 </a>
               </div>
               <div className="github-container">
-                <Link to="https://www.github.com/adakeita">
-                  <img src={Github} alt="Github-link" className="github-icon" />
-                </Link>
+                <a
+                  href="https://www.github.com/adakeita"
+                  aria-label="Visit GitHub profile"
+                >
+                  <img src={Github} alt="GitHub Icon" className="github-icon" />
+                </a>
               </div>
             </div>
           </section>

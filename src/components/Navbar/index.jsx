@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import DropdownMenu from "./DropDownMenu";
 import NavigationLinks from "./NavigationLinks";
@@ -11,6 +11,19 @@ const Navbar = () => {
   const isLoggedIn = Boolean(localStorage.getItem("jwtToken"));
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 640) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handleLogout = () => {
     localStorage.clear();
     navigate({ to: '/' });
@@ -22,10 +35,10 @@ const Navbar = () => {
 
   return (
     <div className="navbar-container flex items-center flex-wrap h-30">
-      <section className="navbar-section relative mx-5 py-2 w-screen">
+      <section className="navbar-section relative mx-2 py-1 w-screen">
         <nav className="navbar text-black">
           {/* Main Flex Container */}
-          <div className="navbar-main flex justify-between items-center mx-3 py-6">
+          <div className="navbar-main flex justify-between items-center mx-3 py-4">
             {/* Logo */}
             <Link
               to="/"
@@ -54,6 +67,8 @@ const Navbar = () => {
               toggleMenu={toggleMenu}
               isMenuOpen={isMenuOpen}
               className="navbar-hamburger sm:hidden"
+              aria-controls="dropdownMenu"
+              aria-expanded={isMenuOpen}
             />
           </div>
 
