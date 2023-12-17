@@ -8,9 +8,7 @@ form {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-form input[type="text"],
-form input[type="datetime-local"],
-form textarea {
+.newlisting-inputfield {
     width: 100%;
     padding: 10px;
     margin: 10px 0;

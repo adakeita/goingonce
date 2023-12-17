@@ -6,7 +6,7 @@
 
 //Register user
 export const registerUser = async (userData) => {
-  // If the avatar is not provided, remove it from request body
+  // If the avatar is not provided, remove it from request
   if (!userData.avatar) {
     delete userData.avatar;
   }

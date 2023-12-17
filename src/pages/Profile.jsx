@@ -29,11 +29,11 @@ const ProfilePage = () => {
           <section className="user-bids-listing">
             <UserListingsDisplay userName={profile.name} token={token} />
           </section>
+          <NewListingButton />
         </main>
       ) : (
         <p>Profile not found.</p>
       )}
-      <NewListingButton />
     </div>
   );
 };

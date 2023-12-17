@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/");
+    navigate({ to: '/' });
   };
 
   const toggleMenu = () => {
@@ -21,11 +21,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar-container flex flex-wrap h-30">
-      <section className="navbar-section relative mx-5 w-screen">
+    <div className="navbar-container flex items-center flex-wrap h-30">
+      <section className="navbar-section relative mx-5 py-2 w-screen">
         <nav className="navbar text-black">
           {/* Main Flex Container */}
-          <div className="navbar-main flex justify-between items-center mx-3 py-5">
+          <div className="navbar-main flex justify-between items-center mx-3 py-6">
             {/* Logo */}
             <Link
               to="/"
@@ -42,7 +42,7 @@ const Navbar = () => {
             </div>
 
             {/* UserNavSection for Larger Screens */}
-            <div className="navbar-user-section hidden sm:flex items-center justify-end">
+            <div className="navbar-user-section w-3/12 hidden sm:flex items-center justify-end">
               <UserNavSection
                 isLoggedIn={isLoggedIn}
                 handleLogout={handleLogout}

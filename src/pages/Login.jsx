@@ -1,11 +1,13 @@
 import LoginForm from "../components/LoginForm";
+import "../pagestyles/loginsignup.css";
 
 const LoginPage = () => {
   return (
     <>
       <main>
-        <h1>Login to your account</h1>
+        <div id="LoginPage-wrapper">
         <LoginForm />
+        </div>
       </main>
     </>
   );

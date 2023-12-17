@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from '@tanstack/react-router';
 import { loginUser } from "../../lib/api";
+import "./loginform.css";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -14,34 +15,31 @@ const LoginForm = () => {
       const userData = await loginUser(email, password);
       navigate({ to: "/profile" });
     } catch (error) {
-      setErrorMessage(error.message);
+      setErrorMessage(error.message + ", Invalid email or password");
     }
   };
 
   return (
     <>
-      <div className="loginForm-container">
+      <div className="loginForm-wrapper">
         <form id="loginForm" onSubmit={handleSubmit}>
-          <div className="inputfield-wrapper">
-            <label htmlFor="email" className="login-formfield-label">
-              Email
-            </label>
+          <h1>Login</h1>
+          <div className="login-inputfield-container">
             <div className="login-formfield">
+              <label htmlFor="email-login" className="visually-hidden">Email</label>
               <input
                 id="email-login"
                 name="email"
                 type="email"
                 required
-                placeholder="Email"
+                placeholder="example@stud.noroff.no"
                 autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <label htmlFor="password" className="login-formfield-label">
-              Password
-            </label>
             <div className="login-formfield">
+              <label htmlFor="paswd-login" className="visually-hidden">Password</label>
               <input
                 id="paswd-login"
                 name="password"
@@ -57,7 +55,7 @@ const LoginForm = () => {
           </div>
           {errorMessage && <div className="error-message">{errorMessage}</div>}
           <div className="loginbtn-wrapper">
-            <button type="submit" className="btn">
+            <button type="submit" className="login-submit-btn">
               Login
             </button>
 

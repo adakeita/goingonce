@@ -10,7 +10,7 @@ const ChangeAvatarBtn = ({ userName, currentAvatar, onUpdateSuccess }) => {
 
   return (
     <>
-      <button className="change-avatar-btn" onClick={openModal}>Change Avatar</button>
+      <button className="change-avatar-btn teal-btn" onClick={openModal}>Change Avatar</button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <UpdateAvatar
           userName={userName}

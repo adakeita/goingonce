@@ -28,7 +28,7 @@ const BidCountdown = ({ endsAt }) => {
     return () => clearInterval(timer);
   }, [endsAt]);
 
-  return <div className="countdown-container"><p>Ends in:</p><p> {timeLeft}</p></div>
+  return <div className="countdown-container"><p>Time Left:</p><p> {timeLeft}</p></div>
 };
 
 export default BidCountdown;

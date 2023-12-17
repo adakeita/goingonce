@@ -56,6 +56,7 @@ const NewListingForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <input
+      className="newlisting-inputfield newlisting-title"
         name="title"
         value={formData.title}
         onChange={handleChange}
@@ -63,6 +64,7 @@ const NewListingForm = () => {
         required // required
       />
       <textarea
+      className="newlisting-inputfield newlisting-description"
         name="description"
         value={formData.description}
         onChange={handleChange}
@@ -70,12 +72,14 @@ const NewListingForm = () => {
         required // required
       />
       <input
+      className="newlisting-inputfield newlisting-tags"
         name="tags"
         value={formData.tags}
         onChange={handleChange}
         placeholder="Tags (comma-separated)"
       />
       <input
+      className="newlisting-inputfield newlisting-media"
         name="media"
         type="url"
         value={formData.media}
@@ -84,13 +88,14 @@ const NewListingForm = () => {
         required // required
       />
       <input
+      className="newlisting-inputfield newlisting-endsat"
         name="endsAt"
         type="datetime-local"
         value={formData.endsAt}
         onChange={handleChange}
         required //required
       />
-      <button type="submit">Create Listing</button>
+      <button className="create-listing-btn" type="submit">Create Listing</button>
       {error && <p>{error}</p>}
     </form>
   );

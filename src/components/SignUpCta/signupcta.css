@@ -1,7 +1,6 @@
 .home-ctaregister-section {
-    background: rgb(159, 211, 228);
-    background: linear-gradient(178deg, rgba(159, 211, 228, 5) 25%, rgb(173 222 149) 80%);
-    min-height: 25vh;
+    background-color: #d8ffc2;
+    min-height: 40vh;
     display: flex;
     background-size: cover;
     background-repeat: no-repeat;
@@ -13,6 +12,7 @@
     text-align: center;
     margin: auto;
     width: 45vw;
+    padding: 3em 0;
 }
 
 .register-cta-pitch {
@@ -26,9 +26,17 @@
 }
 
 .register-cta-btn {
-    background: #008080;
+    background: #f44336;
     color: white;
     border-radius: 10px;
     padding: 10px 40px;
     margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: 400;
+    box-shadow: 2px 3px 0px 0px #92b57e;
+    transition: all 0.3s ease-in-out;
+}
+
+.register-cta-btn:hover {
+    background: #b33026;
 }

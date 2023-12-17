@@ -11,18 +11,18 @@ const SingleListingCard = ({ listing, onBidSuccess }) => {
   return (
     <div className="singlelisting-card">
       <div className="singlelisting-content">
-        <div className="slisting-img-wrapper">
+        <div className="singlelisting-img-wrapper">
           <img
-            className="slisting-img"
+            className="singlelisting-img"
             src={listing.media[0]}
             alt={listing.title}
           />
         </div>
-        <div className="slisting-info-wrapper">
-          <div className="slisting-title-seller-bids">
-            <h1 className="slisting-title">{listing.title}</h1>
-            <div className="seller-create-bids-wrapper">
-              <div className="seller-create-wrapper">
+        <div className="singlelisting-info-wrapper">
+          <div className="singlelisting-title-seller-bids">
+            <h1 className="singlelisting-title">{listing.title}</h1>
+            <div className="seller-created-bids-wrapper">
+              <div className="seller-created-wrapper">
                 <p>Seller: {listing.seller?.name}</p>
                 <p>Created: {new Date(listing.created).toLocaleDateString()}</p>
               </div>
@@ -34,13 +34,14 @@ const SingleListingCard = ({ listing, onBidSuccess }) => {
           </div>
           <div className="description-wrapper">
             <h3>Description</h3>
-            <p>{listing.description}</p>
+            <p className="item-description">
+            {listing.description ? listing.description : "No description provided"}</p>
+            <BidCountdown endsAt={listing.endsAt} />
           </div>
           <div className="placebid-wrapper">
             <BidBtn listingId={listing.id} onBidSuccess={onBidSuccess} />
           </div>
-          <BidCountdown endsAt={listing.endsAt} />
-          <p>Ends: {new Date(listing.endsAt).toLocaleDateString()}</p>
+          <p className="singlelisting-end">End date: {new Date(listing.endsAt).toLocaleDateString()}</p>
         </div>
       </div>
     </div>

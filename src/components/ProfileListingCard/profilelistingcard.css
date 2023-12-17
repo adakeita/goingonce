@@ -2,22 +2,22 @@
     width: 70%;
 }
 
-.profile-listing-card {
-    width: 200px;
-    height: 300px;
+.profile-listingcard {
+    width: 225px;
+    height: 325px;
     display: flex;
     flex-direction: column;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     margin: 1em;
     align-items: center;
     justify-content: space-evenly;
+    box-shadow: 1px 2px 1px 1px rgb(203 190 158 / 66%);
 }
 
-.profile-listing-header {
+.profilelisting-header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -25,11 +25,11 @@
     justify-content: space-between;
 }
 
-.profile-listing-card-link {
+.profile-listingcard-link {
     cursor: pointer;
 }
 
-.profile-listing-container {
+.profilelisting-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -47,14 +47,20 @@
 .your-listing-header {
     font-size: 1.5em;
     font-weight: 200;
-    margin: 0.5em 0;
+    margin: 0.5em 1em;
 }
 
-.profile-listing-img-wrapper {
-    width: 150px;
-    height: 100px;
+.profilelisting-img-container {
+    width: 80%;
+    height: 120px;
     margin: 0 auto;
     overflow: hidden;
+}
+
+.profile-bid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profile-bid-count {
@@ -109,18 +115,6 @@
         font-size: 16px;
     }
 
-    .change-avatar-btn {
-        margin: 1em auto;
-        width: 100%;
-        padding: 0.5em 2.6em;
-        border: 1px solid white;
-        border-radius: 5px;
-        background-color: #008080;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
     .avatar-img-wrapper {
         width: 185px;
         height: 185px;
@@ -137,12 +131,12 @@
         align-items: center;
     }
 
-    .profile-listing-card {
+    .profile-listingcard {
         width: 250px;
         height: 320px;
     }
 
-    .profile-listing-img-wrapper {
+    .profilelisting-img-container {
         width: 175px;
         height: 115px;
     }
@@ -160,6 +154,4 @@
         font-size: 16px;
         font-style: italic;
     }
-
-
 }

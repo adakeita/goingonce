@@ -1,8 +1,8 @@
 import HomeHero from "../components/HomeHero";
 import About from "../components/About";
-import NewListingButton from "../components/NewListingButton";
 import HowSection from "../components/HowSection";
 import SignUpCta from "../components/SignUpCta";
+import HomeListingsCta from "../components/HomeListingsCta";
 
 const HomePage = () => {
   return (
@@ -12,6 +12,7 @@ const HomePage = () => {
         <About />
         <SignUpCta />
         <HowSection />
+         <HomeListingsCta />
       </div>
     </>
   );

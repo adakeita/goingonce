@@ -3,7 +3,6 @@ import ListingMenuBtn from "../ListingMenuBtn";
 import "./profilelistingcard.css";
 
 const ProfileListingCard = ({ listing, token, setShouldRefresh }) => {
-  console.log("Token in ProfileListingCard:", token);
 
   const highestBid = listing.bids?.reduce(
     (max, bid) => (bid.amount > max ? bid.amount : max),
@@ -13,9 +12,9 @@ const ProfileListingCard = ({ listing, token, setShouldRefresh }) => {
   const initialListingData = { ...listing };
 
   return (
-    <div className="profile-listing-card">
-      <div className="profile-listing-header">
-        <h3 className="profile-listing-title">{listing.title}</h3>
+    <div className="profile-listingcard">
+      <div className="profilelisting-header">
+        <h3 className="profilelisting-title">{listing.title}</h3>
         <ListingMenuBtn
           listingId={listing.id}
           token={token}
@@ -25,13 +24,13 @@ const ProfileListingCard = ({ listing, token, setShouldRefresh }) => {
       </div>
       <Link
         to={`/listing?listingId=${listing.id}`}
-        className="listing-card-link"
+        className="profile-listingcard-link"
       >
-        <div className="profile-listing-img-wrapper">
+        <div className="profilelisting-img-container">
           <img
             src={listing.media[0]}
             alt={listing.title}
-            className="listing-img"
+            className="profilelisting-img"
           />
         </div>
         <div className="profile-bid-container">

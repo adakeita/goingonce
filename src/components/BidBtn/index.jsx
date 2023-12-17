@@ -4,9 +4,14 @@ import BidForm from "../BidForm";
 
 const BidBtn = ({ listingId, onBidSuccess }) => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const isLoggedIn = Boolean(localStorage.getItem("jwtToken"));
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
+
+  if (!isLoggedIn) {
+    return null;
+  }
 
   return (
     <>

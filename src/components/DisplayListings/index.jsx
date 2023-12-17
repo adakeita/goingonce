@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchListings } from "../../lib/api";
 import { filterImageListings, Pagination } from "../UtilComponents";
+import SearchComponent from "../SearchComponent";
 import ListingCard from "../ListingCard";
 import "./displaylistings.css";
 
@@ -11,12 +12,19 @@ const DisplayListings = () => {
   const [offset, setOffset] = useState(0);
   const [hasMoreListings, setHasMoreListings] = useState(false);
   const limit = 18;
+  const [searchTerm, setSearchTerm] = useState("");
+  const [tag, setTag] = useState("");
 
   useEffect(() => {
     const loadListings = async () => {
       setLoading(true);
       try {
-        const fetchedListings = await fetchListings(limit, offset);
+        const fetchedListings = await fetchListings(
+          limit,
+          offset,
+          true,
+          tag,
+        );
         const filteredListings = filterImageListings(fetchedListings);
         setListings(filteredListings);
         setHasMoreListings(fetchedListings.length === limit);
@@ -28,7 +36,12 @@ const DisplayListings = () => {
     };
 
     loadListings();
-  }, [offset]); // Re-fetch when offset changes
+  }, [offset, tag]);
+
+  const handleSearch = (tag) => {
+    setTag(tag);
+    setOffset(0);
+  };
 
   if (loading) {
     return <div>Loading listings...</div>;
@@ -41,7 +54,10 @@ const DisplayListings = () => {
   return (
     <div className="listingpage-container">
       <div className="listingpage-content">
-        <h1>Listings</h1>
+        <div className="listingsheader-container">
+          <h1>Listings</h1>
+          <SearchComponent onSearch={handleSearch} />
+        </div>
         <div className="listings-wrapper">
           {listings.map((listing) => (
             <ListingCard key={listing.id} listing={listing} />

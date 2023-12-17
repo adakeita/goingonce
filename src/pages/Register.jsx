@@ -1,14 +1,14 @@
 import RegisterForm from "../components/RegisterForm";
+import "../pagestyles/loginsignup.css";
 
 const RegisterPage = () => {
-    return (
-        <>
-            <div className="register-container">
-                <h1>Register</h1>
-                <RegisterForm />
-            </div>
-        </>
-    )
-}
+  return (
+    <>
+      <div id="RegisterPage-wrapper">
+        <RegisterForm />
+      </div>
+    </>
+  );
+};
 
 export default RegisterPage;
