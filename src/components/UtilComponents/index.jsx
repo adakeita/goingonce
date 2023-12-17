@@ -16,9 +16,19 @@ export const Pagination = ({ offset, limit, setOffset, hasMore }) => {
     };
 
     return (
-        <div>
-            {offset > 0 && <button onClick={handlePrevClick}>Previous</button>}
-            {hasMore && <button onClick={handleNextClick}>Next</button>}
+        <div className="pagination-container">
+            {offset > 0 && <button className="previous-btn teal-btn" onClick={handlePrevClick}>&larr; Previous</button>}
+            {hasMore && <button className="next-btn teal-btn" onClick={handleNextClick}>Next &rarr;</button>}
         </div>
     );
 };
+
+export function toDisplayFormat(dateString) {
+    const [year, month, day] = dateString.split('T')[0].split('-');
+    return `${day}/${month}/${year}`;
+  }
+
+  export function toApiFormat(displayDateString) {
+    const parts = displayDateString.split('/');
+    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+  }

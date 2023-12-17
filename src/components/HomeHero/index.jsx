@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import "./hero.css";
 import blobs from "../../assets/images/blobs.png";
 
@@ -28,7 +29,10 @@ const HomeHero = () => {
                   Sign up now and get 1000 credits!
                 </p>
                 <div className="hero-signup-btn-wrapper">
+                  <Link to="/register" className="hero-signup-btn-link">
                   <button className="hero-signup-btn">I'm in!</button>
+                  </Link>
+
                 </div>
               </div>
             </div>

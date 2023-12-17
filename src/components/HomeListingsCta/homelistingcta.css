@@ -1,0 +1,40 @@
+.home-listing-cta {
+    height: 35vh;
+    margin: 0 auto;
+    background: #a1d5db;
+}
+
+.home-view-listings-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    padding: 2.5em 0;
+    margin: auto;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.home-view-listings-pitch {
+    text-align: center;
+    font-weight: 500;
+}
+
+.home-view-listings-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.home-view-listings-btn {
+    background-color: #008080;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 1px 2px 1px 1px rgb(85 128 133 / 50%);
+    transition: all 0.3s ease-in-out;
+}
+
+.home-view-listings-btn:hover {
+    background-color: #134e4a;
+    transition: all 0.3s ease-in-out;
+}

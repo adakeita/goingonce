@@ -1,58 +1,67 @@
 /* listingform.css */
-form {
+.new-listingform {
+    height: 75vh;
     max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 10px auto;
+    padding: 10px;
     background-color: #f9f9f9;
-    border-radius: 8px;
+    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-form input[type="text"],
-form input[type="datetime-local"],
-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+.new-listing-header {
+font-size: 20px;
+text-transform: uppercase;
+text-align: center;
+margin: 5px auto;
+}
+
+.new-listingform-content {
+    display: flex;
+    height: 90%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.newlisting-inputfield {
+    width: 90%;
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 5px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 5px;
     box-sizing: border-box;
 }
 
-form textarea {
-    height: 100px;
-    resize: vertical;
+.endsat-newlistingform {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 14px;
+    color: red;
 }
 
-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+.create-listing-btn {
+    background-color: #25a427;
     color: white;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 90%;
+    margin: 0 auto;
     transition: background-color 0.3s;
 }
 
-form button:hover {
-    background-color: #0056b3;
-}
-
-form p {
-    color: #ff0000;
-    margin-top: 10px;
+.create-listing-btn:hover {
+    background-color: #155415;
 }
 
 /* Placeholder color */
 ::placeholder {
     color: #999;
-}
-
-/* Input focus outline */
-input:focus,
-textarea:focus {
-    outline: none;
-    border-color: #007bff;
 }

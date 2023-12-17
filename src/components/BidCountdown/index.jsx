@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./bidcountdown.css";
 
 const BidCountdown = ({ endsAt }) => {
   const [timeLeft, setTimeLeft] = useState("");
@@ -27,7 +28,7 @@ const BidCountdown = ({ endsAt }) => {
     return () => clearInterval(timer);
   }, [endsAt]);
 
-  return <p>Time Left: {timeLeft}</p>;
+  return <div className="countdown-container"><p>Time Left:</p><p> {timeLeft}</p></div>
 };
 
 export default BidCountdown;

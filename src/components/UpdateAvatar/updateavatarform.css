@@ -1,0 +1,50 @@
+.changeavatar-txt-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ded9d9;
+    margin: 1em 0px;
+}
+
+.changeavatar-header {
+    font-size: 24px;
+    margin: 10px 0px;
+}
+
+.changeavatar-p {
+    color: black;
+    font-size: 14px;
+}
+
+.changeavatar-input {
+    display: flex;
+    width: 90%;
+    text-align: center;
+    padding: 0.5em;
+    margin: 1em auto;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.submit-updateavatar {
+    display: flex;
+    width: 90%;
+    border: 1px solid;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px auto;
+    background: green;
+    text-transform: uppercase;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-updateavatar:hover {
+    background-color: rgb(2, 73, 2);
+    transition: all 0.3s ease-in-out;
+}

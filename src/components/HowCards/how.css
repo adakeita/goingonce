@@ -1,13 +1,12 @@
 .how-card {
-    width: 200px;
-    height: 230px;
-    background-color: white;
+    width: 230px;
+    height: 215px;
+    background-color: #fff;
     margin: 0 1em;
     padding: 1em 0.5em;
-    border: 1px solid black;
-    border-radius: 5%;
+    border: 1px solid white;
     text-align: center;
-    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 0px 0px #5097a1;
 }
 
 .howcard-content {
@@ -24,12 +23,11 @@
 .how-title {
     padding: 0.2em;
     font-size: 1em;
-    font-weight: bold;
-    font-style: italic;
+    text-transform: uppercase;
 }
 
 .step-wrapper {
-text-align: left;
+    text-align: left;
 }
 
 @media screen and (max-width: 768px) {
@@ -40,7 +38,6 @@ text-align: left;
     .how-card {
         width: 230px;
         margin: 20px 0;
-        
     }
 
     .howcard-content {
@@ -51,5 +48,4 @@ text-align: left;
     .step-wrapper {
         text-align: center;
     }
-    
 }

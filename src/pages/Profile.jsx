@@ -1,34 +1,14 @@
-import { useEffect, useState } from "react";
-import ProfileDisplay from "../components/ProfileDisplay";
+import useUserProfile from "../hooks/useUserProfile";
+import ProfileCard from "../components/ProfileCard";
 import UserListingsDisplay from "../components/UserListingsDisplay";
-import { fetchUserProfile } from "../lib/api";
+import NewListingButton from "../components/NewListingButton";
+import "../pagestyles/profile.css";
+import CreditContainer from "../components/CreditContainer";
 
 const ProfilePage = () => {
-  const [profile, setProfile] = useState(null);
-  const [token, setToken] = useState(localStorage.getItem("jwtToken"));
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const loadProfile = async () => {
-      try {
-        const userName = localStorage.getItem("userName");
-        if (!userName) throw new Error("Username not found");
-        console.log("Fetching profile for:", userName); // Debugging
-
-        const profileData = await fetchUserProfile(userName);
-        console.log("Profile data received:", profileData); // Debugging
-        setProfile(profileData);
-      } catch (err) {
-        console.error("Error loading profile:", err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadProfile();
-  }, []);
+  const userName = localStorage.getItem("userName");
+  const { profile, loading, error } = useUserProfile(userName);
+  const token = localStorage.getItem("jwtToken");
 
   if (loading) {
     return <p>Loading profile...</p>;
@@ -39,12 +19,18 @@ const ProfilePage = () => {
   }
 
   return (
-    <div>
+    <div className="page-container">
       {profile ? (
-        <>
-          <ProfileDisplay profile={profile} />
-          <UserListingsDisplay userName={profile.name} token={token} />
-        </>
+        <main id="profileContent">
+          <section className="user-info">
+            <ProfileCard profile={profile} />
+            <CreditContainer profile={profile} />
+          </section>
+          <section className="user-bids-listing">
+            <UserListingsDisplay userName={profile.name} token={token} />
+          </section>
+          <NewListingButton />
+        </main>
       ) : (
         <p>Profile not found.</p>
       )}

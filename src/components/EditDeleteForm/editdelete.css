@@ -1,0 +1,52 @@
+.editdeleteform {
+    height: 365px;
+}
+
+.editdeleteform-title {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.editdelete-inputfield-container {
+    height: 65%;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.editlabel {
+    width: 90%;
+    margin: 5px auto 0px auto;
+}
+
+.editdelete-inputfield {
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 5px 10px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.handledit-btn {
+    display: flex;
+    width: 90%;
+    border: 1px solid;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px auto;
+    background: green;
+    text-transform: uppercase;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.handledit-btn:hover {
+    background-color: rgb(2, 73, 2);
+    transition: all 0.3s ease-in-out;
+}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NewListingModal from "../NewListingModal";
+import Modal from "../Modal";
 import NewListingForm from "../NewListingForm";
 import "./listingbutton.css";
 import buttonImage from "../../assets/images/listing-btn.png";
@@ -23,9 +23,9 @@ const NewListingButton = () => {
             <img src={buttonImage} alt="" className="listingbtn-image" />
           </div>
         </button>
-        <NewListingModal isOpen={isModalOpen} onClose={closeModal}>
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
           <NewListingForm />
-        </NewListingModal>
+        </Modal>
       </div>
     </>
   );

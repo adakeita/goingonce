@@ -6,6 +6,7 @@ const DisplaySingleListing = ({ listingId }) => {
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [refreshTrigger, setRefreshTrigger] = useState(false);
 
   useEffect(() => {
     const loadListing = async () => {
@@ -21,7 +22,7 @@ const DisplaySingleListing = ({ listingId }) => {
     };
 
     loadListing();
-  }, [listingId]);
+  }, [listingId, refreshTrigger]);
 
   if (loading) {
     return <p>Loading listing...</p>;
@@ -35,7 +36,10 @@ const DisplaySingleListing = ({ listingId }) => {
     <div className="singlelisting-display">
       {listing ? (
         <>
-          <SingleListingCard listing={listing} />
+          <SingleListingCard
+            listing={listing}
+            onBidSuccess={() => setRefreshTrigger((prev) => !prev)}
+          />
         </>
       ) : (
         <p>Listing not found.</p>

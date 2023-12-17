@@ -1,15 +1,23 @@
 //api util functions
 
+// -------------------
+// User Authentication
+// -------------------
+
+
+const baseUrl = "https://api.noroff.dev/api/v1";
+
+
 //Register user
 export const registerUser = async (userData) => {
-  // If the avatar is not provided, remove it from request body
+  // If the avatar is not provided, remove it from request
   if (!userData.avatar) {
     delete userData.avatar;
   }
 
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/auth/register`,
+      `${baseUrl}/auction/auth/register`,
       {
         method: "POST",
         headers: {
@@ -36,7 +44,7 @@ export const registerUser = async (userData) => {
 export const loginUser = async (email, password) => {
   try {
     const loginResponse = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/auth/login`,
+      `${baseUrl}/auction/auth/login`,
       {
         method: "POST",
         headers: {
@@ -63,7 +71,7 @@ export const loginUser = async (email, password) => {
 
     // Fetch user profile data
     const profileResponse = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/profiles/${userData.name}`,
+      `${baseUrl}/auction/profiles/${userData.name}`,
       {
         headers: {
           Authorization: `Bearer ${userData.accessToken}`,
@@ -101,6 +109,10 @@ export const loginUser = async (email, password) => {
   }
 };
 
+// ----------------
+// User Profile
+// ----------------
+
 //Fetch user profile
 export const fetchUserProfile = async (userName) => {
   try {
@@ -110,7 +122,7 @@ export const fetchUserProfile = async (userName) => {
     }
 
     const profileResponse = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/profiles/${userName}`,
+      `${baseUrl}/auction/profiles/${userName}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -131,6 +143,37 @@ export const fetchUserProfile = async (userName) => {
   }
 };
 
+//Update user avatar
+export const updateUserAvatar = async (userName, avatarUrl) => {
+  try {
+    const response = await fetch(
+      `${baseUrl}/auction/profiles/${userName}/media`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+        },
+        body: JSON.stringify({ avatar: avatarUrl }),
+      }
+    );
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Failed to update avatar");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error updating avatar:", error);
+    throw error;
+  }
+};
+
+// ----------------
+// Listings Management
+// ----------------
+
 //Fetch listings
 export const fetchListings = async (
   limit = 20,
@@ -140,7 +183,7 @@ export const fetchListings = async (
 ) => {
   try {
     let url = `${
-      import.meta.env.VITE_API_BASEURL
+      baseUrl
     }/auction/listings?limit=${limit}&offset=${offset}&_seller=true&_bids=true&sort=created&sortOrder=desc`;
 
     if (active) {
@@ -169,10 +212,8 @@ export const fetchListings = async (
 export const fetchUserListings = async (userName, token) => {
   try {
     const url = `${
-      import.meta.env.VITE_API_BASEURL
-    }/auction/profiles/${userName}/listings?_seller=true`;
-    console.log("Fetching listings with URL:", url); // Debug log
-    console.log("Using token:", token); // Debug log
+      baseUrl
+    }/auction/profiles/${userName}/listings?_seller=true?&_bids=true`;
 
     const response = await fetch(url, {
       headers: {
@@ -184,7 +225,6 @@ export const fetchUserListings = async (userName, token) => {
 
     if (!response.ok) {
       const errorData = await response.json();
-      console.log("Error data:", errorData); // Debug log
       throw new Error("Failed to fetch user listings");
     }
 
@@ -195,11 +235,31 @@ export const fetchUserListings = async (userName, token) => {
   }
 };
 
+//Fetch a single listing by ID, include seller and bids.
+export const fetchSingleListing = async (listingId) => {
+  try {
+    const response = await fetch(
+      `${
+        baseUrl
+      }/auction/listings/${listingId}?_seller=true&_bids=true`
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch listing");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching single listing:", error);
+    throw error;
+  }
+};
+
 //Create listing
 export const CreateListing = async (listingData, token) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/listings`,
+      `${baseUrl}/auction/listings`,
       {
         method: "POST",
         headers: {
@@ -224,12 +284,39 @@ export const CreateListing = async (listingData, token) => {
   }
 };
 
-// delete listing
+//Update listing
+export const updateListing = async (listingId, token, updatedListingData) => {
+  try {
+    const response = await fetch(
+      `${baseUrl}/auction/listings/${listingId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(updatedListingData),
+      }
+    );
 
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Failed to update listing");
+    }
+
+    const updatedListing = await response.json();
+    return updatedListing;
+  } catch (error) {
+    console.error("Error updating listing:", error);
+    throw error;
+  }
+};
+
+//Delete listing
 export const deleteListing = async (listingId, token) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_API_BASEURL}/auction/listings/${listingId}`,
+      `${baseUrl}/auction/listings/${listingId}`,
       {
         method: "DELETE",
         headers: {
@@ -249,22 +336,29 @@ export const deleteListing = async (listingId, token) => {
   }
 };
 
-// Fetch a single listing by ID, including seller and bids information
-export const fetchSingleListing = async (listingId) => {
+// Place a bid on a listing
+export const placeBid = async (listingId, token, bidAmount) => {
   try {
     const response = await fetch(
-      `${
-        import.meta.env.VITE_API_BASEURL
-      }/auction/listings/${listingId}?_seller=true&_bids=true`
+      `${baseUrl}/auction/listings/${listingId}/bids`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ amount: bidAmount }),
+      }
     );
 
     if (!response.ok) {
-      throw new Error("Failed to fetch listing");
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Failed to place bid");
     }
 
     return await response.json();
   } catch (error) {
-    console.error("Error fetching single listing:", error);
+    console.error("Error placing bid:", error);
     throw error;
   }
 };

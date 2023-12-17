@@ -5,27 +5,39 @@ body {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+  overflow-y: overlay;
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #00808077;
+}
+
+img {
+  width: 100%;
+}
+
 h1 {
-  font-size: 3.5vw;
+  font-size: 40px;
   font-family: "Raleway", sans-serif;
   font-weight: 800;
   line-height: 115%;
 }
 
 h2 {
-  font-size: 2.5vw;
+  font-size: 30pxvw;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   line-height: 115%;
 }
 
 h3 {
+  font-size: 20px;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
-  font-size: 1.7vw;
 }
 
 p {
@@ -35,6 +47,29 @@ p {
 
 .no-scroll {
   overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.teal-btn {
+  background: #008080;
+  color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.teal-btn:hover {
+  background-color: #134e4a;
+  transition: all 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -52,5 +87,9 @@ p {
   p {
     font-size: 16px;
   }
-  
+}
+
+.page-container {
+  width: 95%;
+  margin: 0 auto;
 }

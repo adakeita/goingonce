@@ -1,7 +1,7 @@
 .how-section {
-    min-height: 65vh;
+    min-height: 30vh;
     margin: 0 auto;
-    background: #adde95;
+    background: #6accd9;
 }
 
 .how-section-content {
@@ -9,10 +9,11 @@
 }
 
 .how-wrapper {
+    width: 95vw;
     display: flex;
-    margin: 2em;
-    justify-content: space-evenly;
+    margin: 2em auto;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .how-header {

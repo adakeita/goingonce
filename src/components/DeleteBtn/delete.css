@@ -1,0 +1,48 @@
+.deletebtn-main {
+    display: flex;
+    width: 90%;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    background: red;
+    text-transform: uppercase;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.deletebtn-main:hover {
+    background-color: rgb(73, 2, 2);
+    transition: all 0.3s ease-in-out;
+}
+
+.deleteconfirmation-txt {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.permadeletebtn-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px auto;
+}
+
+.deleteconfirmation-btn {
+    border: 1px solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.yes {
+    background: green;
+    color: white;
+}
+
+.no {
+    background: red;
+    color: white;
+}

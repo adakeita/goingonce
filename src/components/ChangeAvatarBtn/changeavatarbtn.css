@@ -1,0 +1,26 @@
+.change-avatar-btn {
+    margin: 0.5em auto;
+    width: 100%;
+    padding: 0.5em 1.6em;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: #008080;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 1px 2px 1px 1px rgb(89 132 169);
+}
+
+@media screen and (max-width: 639px) {
+    .change-avatar-btn {
+        margin: 1em auto;
+        width: 100%;
+        padding: 0.5em 2.6em;
+        border: 1px solid white;
+        border-radius: 5px;
+        background-color: #008080;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+}
