@@ -13,6 +13,7 @@ const NewListingForm = () => {
     endsAt: "",
   });
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const [endDate, setEndDate] = useState(() => {
     const tomorrow = new Date();
@@ -48,8 +49,9 @@ const NewListingForm = () => {
       // Send data to the API
       const response = await CreateListing(submitData, token);
       console.log("Listing created:", response);
-      // Handle success
 
+      // Handle success
+      setSuccessMessage("Listing created successfully.");
       setFormData({
         title: "",
         description: "",
@@ -57,6 +59,7 @@ const NewListingForm = () => {
         media: "",
         endsAt: "",
       }); // Clear
+      setTimeout(() => window.location.reload(), 2000);
     } catch (err) {
       setError(err.message);
       console.error("Error submitting form:", err);
@@ -112,7 +115,7 @@ const NewListingForm = () => {
           placeholder="Tags (comma-separated)"
         />
         <label htmlFor="endsAt" className="endsat-newlistingform">
-        (*required) Auction Ends:
+          (*required) Auction Ends:
         </label>
         <input
           className="newlisting-inputfield newlisting-date"
