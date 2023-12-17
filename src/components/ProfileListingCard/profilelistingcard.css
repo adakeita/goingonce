@@ -9,6 +9,7 @@
     flex-direction: column;
     background-color: #fff;
     border-radius: 5px;
+    margin: 0 10px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     align-items: center;
