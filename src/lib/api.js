@@ -4,9 +4,7 @@
 // User Authentication
 // -------------------
 
-
 const baseUrl = "https://api.noroff.dev/api/v1";
-
 
 //Register user
 export const registerUser = async (userData) => {
@@ -16,16 +14,13 @@ export const registerUser = async (userData) => {
   }
 
   try {
-    const response = await fetch(
-      `${baseUrl}/auction/auth/register`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      }
-    );
+    const response = await fetch(`${baseUrl}/auction/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -41,16 +36,13 @@ export const registerUser = async (userData) => {
 //Login user
 export const loginUser = async (email, password) => {
   try {
-    const loginResponse = await fetch(
-      `${baseUrl}/auction/auth/login`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      }
-    );
+    const loginResponse = await fetch(`${baseUrl}/auction/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
     if (!loginResponse.ok) {
       const errorData = await loginResponse.json();
@@ -84,16 +76,6 @@ export const loginUser = async (email, password) => {
       ...userData,
       credits: profileData.credits,
     };
-
-    console.log(
-      "Login Successful:",
-      combinedUserData.name,
-      combinedUserData.email,
-      "Credits:",
-      combinedUserData.credits,
-      "Logged In:",
-      true
-    );
 
     return combinedUserData;
   } catch (error) {
@@ -173,9 +155,7 @@ export const fetchListings = async (
   tag = null
 ) => {
   try {
-    let url = `${
-      baseUrl
-    }/auction/listings?limit=${limit}&offset=${offset}&_seller=true&_bids=true&sort=created&sortOrder=desc`;
+    let url = `${baseUrl}/auction/listings?limit=${limit}&offset=${offset}&_seller=true&_bids=true&sort=created&sortOrder=desc`;
 
     if (active) {
       url += "&_active=true";
@@ -201,9 +181,7 @@ export const fetchListings = async (
 //Fetch listing by user
 export const fetchUserListings = async (userName, token) => {
   try {
-    const url = `${
-      baseUrl
-    }/auction/profiles/${userName}/listings?_seller=true?&_bids=true`;
+    const url = `${baseUrl}/auction/profiles/${userName}/listings?_seller=true?&_bids=true`;
 
     const response = await fetch(url, {
       headers: {
@@ -227,9 +205,7 @@ export const fetchUserListings = async (userName, token) => {
 export const fetchSingleListing = async (listingId) => {
   try {
     const response = await fetch(
-      `${
-        baseUrl
-      }/auction/listings/${listingId}?_seller=true&_bids=true`
+      `${baseUrl}/auction/listings/${listingId}?_seller=true&_bids=true`
     );
 
     if (!response.ok) {
@@ -245,17 +221,14 @@ export const fetchSingleListing = async (listingId) => {
 //Create listing
 export const CreateListing = async (listingData, token) => {
   try {
-    const response = await fetch(
-      `${baseUrl}/auction/listings`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(listingData),
-      }
-    );
+    const response = await fetch(`${baseUrl}/auction/listings`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(listingData),
+    });
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -271,17 +244,14 @@ export const CreateListing = async (listingData, token) => {
 //Update listing
 export const updateListing = async (listingId, token, updatedListingData) => {
   try {
-    const response = await fetch(
-      `${baseUrl}/auction/listings/${listingId}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(updatedListingData),
-      }
-    );
+    const response = await fetch(`${baseUrl}/auction/listings/${listingId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(updatedListingData),
+    });
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -298,15 +268,12 @@ export const updateListing = async (listingId, token, updatedListingData) => {
 //Delete listing
 export const deleteListing = async (listingId, token) => {
   try {
-    const response = await fetch(
-      `${baseUrl}/auction/listings/${listingId}`,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await fetch(`${baseUrl}/auction/listings/${listingId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     if (!response.ok) {
       throw new Error("Failed to delete listing");

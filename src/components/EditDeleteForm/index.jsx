@@ -25,7 +25,6 @@ const EditDeleteForm = ({
   const handleEdit = async () => {
     try {
       const updatedListing = await updateListing(listingId, token, listingData);
-      console.log("Listing updated:", updatedListing);
       setSuccessMessage("Listing updated successfully!");
       setShouldRefresh(true);
     } catch (error) {

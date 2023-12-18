@@ -12,7 +12,6 @@ const UserBidsDisplay = ({ userName, token }) => {
       setLoading(true);
       try {
         const userListings = await fetchUserListings(userName, token);
-        console.log("Fetched listings with bids:", userListings);
         const userBids = userListings.reduce((acc, listing) => {
           listing.bids.forEach((bid) => {
             if (bid.bidderName === userName) {

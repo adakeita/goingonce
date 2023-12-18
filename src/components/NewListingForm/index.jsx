@@ -46,9 +46,8 @@ const NewListingForm = () => {
         endsAt: endsAtFormatted,
       };
 
-      // Send data to the API
+
       const response = await CreateListing(submitData, token);
-      console.log("Listing created:", response);
 
       // Handle success
       setSuccessMessage("Listing created successfully.");
@@ -137,7 +136,8 @@ const NewListingForm = () => {
       </div>
       <div className="message-display">
         {successMessage && <p>{successMessage}</p>}
-        {error && <p>{error}</p>}</div>
+        {error && <p>{error}</p>}
+      </div>
     </form>
   );
 };
