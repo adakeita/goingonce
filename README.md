@@ -40,6 +40,31 @@ cd [goingtwice]
 - **Bid on Items**: Place bids on items you are interested in.
 - **Search by Tag**: Find listings with specific tags in the search bar.
 
+
+# Testing Implementation
+
+## Overview
+This repository includes a comprehensive suite of end-to-end (E2E) tests for our web application, focusing on critical user journeys and interactions. These tests ensure the application functions reliably and as expected from a user's perspective.
+
+## Tools Used
+- **Cypress**: Our primary tool for end-to-end testing, offering an intuitive framework for simulating real user interactions within a browser environment.
+
+## Key Test Features
+
+### End-to-End Testing with Cypress
+Cypress tests cover several aspects of the application:
+
+- **User Login Journey**: This test simulates a user's login process, validating the functionality from entering credentials to successful navigation upon login.
+- **Non-Registered User Browsing**: Ensures that users who are not logged in can browse listings without encountering any restrictions or errors.
+- **Search Functionality on Listings Page**: Confirms that the search feature on the listings page works as expected, allowing users to search for listings based on specific tags.
+
+### Running the Tests
+To run the end-to-end tests, use the following command in your terminal:
+
+```bash
+# For end-to-end tests with Cypress
+npx cypress open
+
 ## Contributing
 
 Contributions to this project are welcome. To contribute:

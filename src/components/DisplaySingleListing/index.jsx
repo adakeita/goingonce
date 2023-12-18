@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchSingleListing } from "../../lib/api";
 import SingleListingCard from "../SingleListingCard";
+import SingleListingSkeleton from "../SingleListingSkeleton";
 
 const DisplaySingleListing = ({ listingId }) => {
   const [listing, setListing] = useState(null);
@@ -25,7 +26,7 @@ const DisplaySingleListing = ({ listingId }) => {
   }, [listingId, refreshTrigger]);
 
   if (loading) {
-    return <p>Loading listing...</p>;
+    return <SingleListingSkeleton />;
   }
 
   if (error) {

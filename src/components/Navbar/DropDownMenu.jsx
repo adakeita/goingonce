@@ -5,8 +5,8 @@ const DropdownMenu = ({ isMenuOpen, isLoggedIn, handleLogout }) => {
   if (!isMenuOpen) return null;
 
   return (
-    <div className="dropdown-content bg-white px-3 py-1" id="dropdownMenu" role="menu">
-      <ul className="listings-dropdown-link my-3 uppercase font-semibold text-gray-800 space-y-3 text-sm">
+    <div className="transition-all dropdown-content bg-white px-3 py-1" id="dropdownMenu" role="menu">
+      <ul className="transition-all listings-dropdown-link my-3 uppercase font-semibold text-gray-800 space-y-3 text-sm">
         <li>
           <Link
             to="/listings"

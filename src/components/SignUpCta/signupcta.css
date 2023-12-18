@@ -41,7 +41,7 @@
     background: #b33026;
 }
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 640px) {
     .register-cta-content {
         width: 90vw;
     }
