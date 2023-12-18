@@ -12,6 +12,13 @@
     border-radius: 10px;
     box-sizing: border-box;
     box-shadow: 1px 2px 1px 1px rgb(104 141 146 / 50%);
+    transition: all 0.3s ease-in-out;
+}
+
+.listing-card:hover {
+    border: 1px solid #008080;
+    rotate: 3deg;
+    transition: all 0.3s ease-in-out;
 }
 
 .listingcard-content {
