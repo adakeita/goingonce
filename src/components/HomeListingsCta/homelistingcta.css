@@ -38,3 +38,9 @@
     background-color: #134e4a;
     transition: all 0.3s ease-in-out;
 }
+
+@media screen and (max-width: 668px) {
+    .home-view-listings-content {
+        justify-content: space-evenly;
+    }
+}
