@@ -1,5 +1,4 @@
 .singlelisting-card {
-    max-width: 95vw;
     margin: 0 auto;
     background-color: #ffdfc852;
     min-height: 100vh;
@@ -36,8 +35,7 @@
     -o-object-fit: cover;
     object-fit: cover;
     object-position: top;
-    border-right: 2px solid #0f766e;
-    border-bottom: 1px solid #0f766e;
+    border-right: 1px solid #0f766e;
 }
 
 .singlelisting-info-wrapper {
@@ -124,7 +122,8 @@
 
     .singlelisting-img {
         border-right: none;
-        border-bottom: 2px solid #0f766e;
+        border-bottom: 1px solid #0f766e;
+        border-right: none;
         object-position: center;
     }
 
