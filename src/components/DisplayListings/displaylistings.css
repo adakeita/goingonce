@@ -2,7 +2,7 @@
     width: 85vw;
     margin: 0 auto;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 3em 1em;
 }
@@ -10,6 +10,21 @@
 .listingsheader-container h1 {
     font-size: 37px;
     text-transform: uppercase;
+}
+
+.view-default {
+    text-align: center;
+    margin: 10px auto;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.view-default:hover {
+    color: #008080;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .listings-wrapper {
@@ -29,7 +44,6 @@
     padding: 2em 0;
     margin: 0 auto;
     max-width: 50vw;
-
 }
 
 .next-btn,
@@ -66,5 +80,4 @@
     .pagination-container {
         max-width: 100vw;
     }
-    
 }

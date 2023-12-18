@@ -12,19 +12,14 @@ const DisplayListings = () => {
   const [offset, setOffset] = useState(0);
   const [hasMoreListings, setHasMoreListings] = useState(false);
   const limit = 18;
-  const [searchTerm, setSearchTerm] = useState("");
   const [tag, setTag] = useState("");
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
   useEffect(() => {
     const loadListings = async () => {
       setLoading(true);
       try {
-        const fetchedListings = await fetchListings(
-          limit,
-          offset,
-          true,
-          tag,
-        );
+        const fetchedListings = await fetchListings(limit, offset, true, tag);
         const filteredListings = filterImageListings(fetchedListings);
         setListings(filteredListings);
         setHasMoreListings(fetchedListings.length === limit);
@@ -41,6 +36,11 @@ const DisplayListings = () => {
   const handleSearch = (tag) => {
     setTag(tag);
     setOffset(0);
+    setSearchPerformed(true);
+  };
+
+  const handleReloadClick = () => {
+    window.location.reload();
   };
 
   if (loading) {
@@ -54,9 +54,14 @@ const DisplayListings = () => {
   return (
     <div className="listingpage-container">
       <div className="listingpage-content">
-        <div className="listingsheader-container">
-          <h1>Listings</h1>
-          <SearchComponent onSearch={handleSearch} />
+          <div className="listingsheader-container">
+            <h1>Listings</h1>
+            <div className="listingsearch-wrapper">
+            <SearchComponent onSearch={handleSearch} />
+            {searchPerformed && (
+              <button className="view-default" onClick={handleReloadClick}>View All Listings</button>
+            )}
+          </div>
         </div>
         <div className="listings-wrapper">
           {listings.map((listing) => (
