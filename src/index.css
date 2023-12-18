@@ -12,9 +12,6 @@ body {
 ::-webkit-scrollbar {
   width: 0px;
 }
-::-webkit-scrollbar-track-piece {
-  background-color: #00808077;
-}
 
 img {
   width: 100%;
@@ -72,10 +69,15 @@ p {
   transition: all 0.3s ease-in-out;
 }
 
+.page-container {
+  margin: 0 auto;
+}
+
+
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 6vw;
-    margin: em 0;
+    margin: 0.5em 0;
   }
   h2 {
     font-size: 5vw;
@@ -87,9 +89,4 @@ p {
   p {
     font-size: 16px;
   }
-}
-
-.page-container {
-  width: 95%;
-  margin: 0 auto;
 }
