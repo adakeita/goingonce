@@ -1,0 +1,140 @@
+.profile-skeleton {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.user-info-skeleton {
+    display: flex;
+    background-color: #e0e0e0;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2em 1.5em;
+}
+
+.avatar-skeleton,
+.text-skeleton,
+.credit-container-skeleton,
+.listing-skeleton {
+    background-color: #bdbdbd;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-text-avatar {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    justify-content: space-between;
+}
+
+.avatar-skeleton {
+    width: 115px;
+    height: 115px;
+}
+
+.skeleton-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.name-skeleton,
+.email-skeleton {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.credit-container-skeleton {
+    background: #bdbdbd;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.listings-skeleton {
+    padding: 1em 0;
+    min-height: 60vh;
+    background-color: #e0e0e0;
+    width: 100%;
+}
+
+.listing-skeleton {
+    height: 150px;
+    background-color: #bdbdbd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.avatar-skeleton,
+.text-skeleton,
+.credit-container-skeleton,
+.listing-skeleton {
+    background: linear-gradient(to right, #bdbdbd 20%, #e0e0e0 50%, #bdbdbd 80%);
+    background-size: 200% 100%;
+    animation: shimmer 5s infinite linear;
+}
+
+@media screen and (max-width: 668px) {
+    .user-info-skeleton {
+        flex-direction: column;
+        align-items: center;
+        padding: 1em 0;
+    }
+
+    .skeleton-text-avatar {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .avatar-skeleton {
+        width: 185px;
+        height: 185px;
+        margin-bottom: 1em;
+    }
+
+    .skeleton-text-wrapper {
+        align-items: center;
+        width: 60%;
+    }
+
+    .credit-container-skeleton {
+        width: 140px;
+        height: 90px;
+        border-radius: 45% 5%;
+        margin: 2em auto;
+    }
+
+    .listings-skeleton {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+    }
+
+    .listing-skeleton {
+        width: 250px;
+        height: 320px;
+        margin: 1em;
+    }
+}
