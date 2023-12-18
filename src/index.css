@@ -76,17 +76,17 @@ p {
 
 @media screen and (max-width: 640px) {
   h1 {
-    font-size: 6vw;
+    font-size: 26px;
     margin: 0.5em 0;
   }
   h2 {
-    font-size: 5vw;
+    font-size: 21px;
     margin: 1em 0;
   }
   h3 {
     font-size: 18px;
   }
   p {
-    font-size: 16px;
+    font-size: 15px;
   }
 }

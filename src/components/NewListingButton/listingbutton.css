@@ -22,3 +22,15 @@
     rotate: 5deg;
     transition: all 0.3s ease-in-out;
 }
+
+@media screen and (max-width: 640px) {
+    .listingbtn-container {
+        bottom: 2em;
+        right: 1em;
+    }
+
+    .listingbtn-image-container {
+        width: 100px;
+        height: 100px;
+    }
+}
