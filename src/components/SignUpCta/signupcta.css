@@ -40,3 +40,10 @@
 .register-cta-btn:hover {
     background: #b33026;
 }
+
+@media screen and (max-width: 668px) {
+    .register-cta-content {
+        width: 90vw;
+    }
+    
+}

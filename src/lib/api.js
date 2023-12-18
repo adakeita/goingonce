@@ -176,7 +176,7 @@ export const updateUserAvatar = async (userName, avatarUrl) => {
 
 //Fetch listings
 export const fetchListings = async (
-  limit = 20,
+  limit = 18,
   offset = 0,
   active = true,
   tag = null
