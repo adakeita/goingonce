@@ -35,17 +35,19 @@ const UserListingsDisplay = ({ userName, token }) => {
 
   return (
     <div className="profile-listing-container">
-      <h1 className="your-listing-header">Your Listings</h1>
-      <div className="profile-listings-content">
-        {listings.map((listing) => (
-          <div key={listing.id}>
-            <ProfileListingCard
-              listing={listing}
-              token={token}
-              setShouldRefresh={setShouldRefresh}
-            />
-          </div>
-        ))}
+      <div className="profile-listing-content">
+        <h1 className="your-listing-header">Your Listings</h1>
+        <div className="profile-listings-cards-container">
+          {listings.map((listing) => (
+            <div key={listing.id}>
+              <ProfileListingCard
+                listing={listing}
+                token={token}
+                setShouldRefresh={setShouldRefresh}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

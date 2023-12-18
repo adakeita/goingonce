@@ -47,7 +47,7 @@
 
 .baseinfo-wrapper {
     display: flex;
-    font-size: 12px;
+    font-size: 13px;
     margin: 0 auto 1em;
     width: 80%;
     justify-content: space-between;
@@ -63,7 +63,7 @@
 .creation-p {
     display: flex;
     margin: 0;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .listing-img-wrapper {
