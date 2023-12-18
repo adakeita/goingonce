@@ -2,6 +2,7 @@ import useUserProfile from "../hooks/useUserProfile";
 import ProfileCard from "../components/ProfileCard";
 import UserListingsDisplay from "../components/UserListingsDisplay";
 import NewListingButton from "../components/NewListingButton";
+import ProfileSkeleton from "../components/ProfileSkeleton";
 import "../pagestyles/profile.css";
 import CreditContainer from "../components/CreditContainer";
 
@@ -11,7 +12,7 @@ const ProfilePage = () => {
   const token = localStorage.getItem("jwtToken");
 
   if (loading) {
-    return <p>Loading profile...</p>;
+    return <ProfileSkeleton />;
   }
 
   if (error) {
