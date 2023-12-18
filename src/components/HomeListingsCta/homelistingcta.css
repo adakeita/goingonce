@@ -1,5 +1,5 @@
 .home-listing-cta {
-    height: 35vh;
+    height: 40vh;
     margin: 0 auto;
     background: #a1d5db;
 }
@@ -37,4 +37,10 @@
 .home-view-listings-btn:hover {
     background-color: #134e4a;
     transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 640px) {
+    .home-view-listings-content {
+        justify-content: space-evenly;
+    }
 }

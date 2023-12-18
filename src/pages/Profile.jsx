@@ -3,8 +3,8 @@ import ProfileCard from "../components/ProfileCard";
 import UserListingsDisplay from "../components/UserListingsDisplay";
 import NewListingButton from "../components/NewListingButton";
 import ProfileSkeleton from "../components/ProfileSkeleton";
-import "../pagestyles/profile.css";
 import CreditContainer from "../components/CreditContainer";
+import "../pagestyles/profile.css";
 
 const ProfilePage = () => {
   const userName = localStorage.getItem("userName");

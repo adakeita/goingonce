@@ -3,11 +3,12 @@ import { fetchListings } from "../../lib/api";
 import { filterImageListings, Pagination } from "../UtilComponents";
 import SearchComponent from "../SearchComponent";
 import ListingCard from "../ListingCard";
+import ListingsSkeleton from "../ListingsSkeleton";
 import "./displaylistings.css";
 
 const DisplayListings = () => {
   const [listings, setListings] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [offset, setOffset] = useState(0);
   const [hasMoreListings, setHasMoreListings] = useState(false);
@@ -44,7 +45,7 @@ const DisplayListings = () => {
   };
 
   if (loading) {
-    return <div>Loading listings...</div>;
+    return <ListingsSkeleton />;
   }
 
   if (error) {

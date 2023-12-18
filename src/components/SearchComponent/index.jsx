@@ -8,6 +8,13 @@ const SearchComponent = ({ onSearch, onClearSearch }) => {
     onSearch(tag);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+
   return (
     <div className="search-wrapper">
       <div className="search-container">
@@ -17,6 +24,7 @@ const SearchComponent = ({ onSearch, onClearSearch }) => {
           placeholder="Search by tag..."
           value={tag}
           onChange={(e) => setTag(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <button className="search-btn" onClick={handleSearch}>
           Search

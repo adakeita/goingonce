@@ -12,7 +12,7 @@ const NewListingButton = () => {
   const closeModal = () => setModalOpen(false);
 
   if (!isLoggedIn) {
-    return null; // Don't render anything if not logged in
+    return null; 
   }
 
   return (

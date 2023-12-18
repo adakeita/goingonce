@@ -93,7 +93,7 @@
     animation: shimmer 5s infinite linear;
 }
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 640px) {
     .user-info-skeleton {
         flex-direction: column;
         align-items: center;

@@ -29,13 +29,11 @@ export const registerUser = async (userData) => {
 
     if (!response.ok) {
       const errorData = await response.json();
-      console.error("API Response Error:", errorData);
       throw new Error(errorData.message || "Registration failed");
     }
 
     return await response.json(); // If successful, return the user object
   } catch (error) {
-    console.error("Registration Error:", error);
     throw error;
   }
 };
@@ -60,14 +58,9 @@ export const loginUser = async (email, password) => {
     }
 
     const userData = await loginResponse.json();
-    console.log("Received User Data:", userData); // Debugging
 
     localStorage.setItem("jwtToken", userData.accessToken);
     localStorage.setItem("userName", userData.name);
-
-    // Debugging - Check if values are set
-    console.log("Token set:", localStorage.getItem("jwtToken"));
-    console.log("Username set:", localStorage.getItem("userName"));
 
     // Fetch user profile data
     const profileResponse = await fetch(
@@ -104,7 +97,6 @@ export const loginUser = async (email, password) => {
 
     return combinedUserData;
   } catch (error) {
-    console.error("Login Error:", error);
     throw error;
   }
 };
@@ -165,7 +157,6 @@ export const updateUserAvatar = async (userName, avatarUrl) => {
 
     return await response.json();
   } catch (error) {
-    console.error("Error updating avatar:", error);
     throw error;
   }
 };
@@ -176,7 +167,7 @@ export const updateUserAvatar = async (userName, avatarUrl) => {
 
 //Fetch listings
 export const fetchListings = async (
-  limit = 20,
+  limit = 18,
   offset = 0,
   active = true,
   tag = null
@@ -203,7 +194,6 @@ export const fetchListings = async (
     const listings = await response.json();
     return listings;
   } catch (error) {
-    console.error("Error fetching listings:", error);
     throw error;
   }
 };
@@ -220,8 +210,6 @@ export const fetchUserListings = async (userName, token) => {
         Authorization: `Bearer ${token}`,
       },
     });
-
-    console.log("Response status:", response.status); // Debug log
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -250,7 +238,6 @@ export const fetchSingleListing = async (listingId) => {
 
     return await response.json();
   } catch (error) {
-    console.error("Error fetching single listing:", error);
     throw error;
   }
 };
@@ -271,15 +258,12 @@ export const CreateListing = async (listingData, token) => {
     );
 
     if (!response.ok) {
-      // Log response for debugging
       const errorData = await response.json();
-      console.log("API Error:", errorData);
       throw new Error("Failed to create listing");
     }
 
     return await response.json();
   } catch (error) {
-    console.error("Error creating listing:", error);
     throw error;
   }
 };
@@ -307,7 +291,6 @@ export const updateListing = async (listingId, token, updatedListingData) => {
     const updatedListing = await response.json();
     return updatedListing;
   } catch (error) {
-    console.error("Error updating listing:", error);
     throw error;
   }
 };
@@ -331,7 +314,6 @@ export const deleteListing = async (listingId, token) => {
 
     return true; // Successfully deleted
   } catch (error) {
-    console.error("Error deleting listing:", error);
     throw error;
   }
 };
@@ -358,7 +340,6 @@ export const placeBid = async (listingId, token, bidAmount) => {
 
     return await response.json();
   } catch (error) {
-    console.error("Error placing bid:", error);
     throw error;
   }
 };

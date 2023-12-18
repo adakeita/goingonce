@@ -1,0 +1,64 @@
+.listings-skeleton-container {
+    background-color: #a1d5db;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.listings-skeleton-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 1em;
+}
+
+.skeleton-text {
+    background-color: #bdbdbd;
+    border-radius: 5px;
+    animation: shimmer 2s infinite linear;
+}
+
+.skeleton-title {
+    width: 200px;
+    height: 30px;
+}
+
+.skeleton-search {
+    width: 150px;
+    height: 20px;
+    background-color: #bdbdbd;
+    border-radius: 5px;
+}
+
+.listings-skeleton-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+
+.skeleton-listing-card {
+    width: 265px;
+    height: 425px;
+    background-color: #bdbdbd;
+    margin: 10px;
+    border-radius: 10px;
+    animation: shimmer 2s infinite linear;
+}
+
+.skeleton-text,
+.skeleton-search,
+.skeleton-listing-card {
+    background: linear-gradient(to right, #bdbdbd 20%, #e0e0e0 50%, #bdbdbd 80%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite linear;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}

@@ -5,8 +5,8 @@ const DropdownMenu = ({ isMenuOpen, isLoggedIn, handleLogout }) => {
   if (!isMenuOpen) return null;
 
   return (
-    <div className="dropdown-content bg-white px-2 py-1" id="dropdownMenu" role="menu">
-      <ul className="listings-dropdown-link my-3 uppercase font-semibold text-gray-800 space-y-3 text-sm">
+    <div className="transition-all dropdown-content bg-white px-3 py-1" id="dropdownMenu" role="menu">
+      <ul className="transition-all listings-dropdown-link my-3 uppercase font-semibold text-gray-800 space-y-3 text-sm">
         <li>
           <Link
             to="/listings"
@@ -17,16 +17,16 @@ const DropdownMenu = ({ isMenuOpen, isLoggedIn, handleLogout }) => {
         </li>
       </ul>
       {isLoggedIn ? (
-        <div className="profile-link my-4 flex items-center justify-between">
+        <div className="profile-link my-4 flex items-center justify-between px-1">
           <Link
             to="/profile"
-            className="hover:text-gray-800 transition duration-300"
+            className="hover:scale-110 transition duration-300"
           >
             <img src={profileIcon} alt="Profile" className="h-6 w-6" />
           </Link>
           <button
             onClick={handleLogout}
-            className="text-gray-800 hover:text-gray-600 transition duration-300"
+            className="hover:text-teal-700 transition duration-300 hover:underline"
           >
             Logout
           </button>

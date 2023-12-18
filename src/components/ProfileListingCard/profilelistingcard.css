@@ -29,14 +29,23 @@
     cursor: pointer;
 }
 
-.profilelisting-container {
+.profile-listing-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 2em 1.5em;
 }
 
-.profile-listings-content {
+.profile-listing-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 1em 0;
+}
+
+.profile-listings-cards-container {
     padding: 1em 1em;
     display: flex;
     flex-direction: row;
@@ -130,7 +139,7 @@
         margin: 2em auto;
     }
 
-    .profile-listings-content {
+    .profile-listings-cards-container {
         flex-direction: column;
         align-items: center;
         overflow-x: hidden;
