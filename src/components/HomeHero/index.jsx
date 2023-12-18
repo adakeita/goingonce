@@ -1,8 +1,19 @@
 import { Link } from "@tanstack/react-router";
-import "./hero.css";
+import { useEffect, useState } from "react";
 import blobs from "../../assets/images/blobs.png";
+import "./hero.css";
 
 const HomeHero = () => {
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 680);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 680);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <>
       <main className="hero-container">
@@ -24,21 +35,27 @@ const HomeHero = () => {
                   </p>
                 </div>
               </div>
+              {isMobileView && (
+                <div className="hero-image-wrapper">
+                  <img className="hero-blobs" src={blobs} alt="blobs" />
+                </div>
+              )}
               <div className="hero-signup-wrapper">
                 <p className="hero-signup-txt">
                   Sign up now and get 1000 credits!
                 </p>
                 <div className="hero-signup-btn-wrapper">
                   <Link to="/register" className="hero-signup-btn-link">
-                  <button className="hero-signup-btn">I'm in!</button>
+                    <button className="hero-signup-btn">I'm in!</button>
                   </Link>
-
                 </div>
               </div>
             </div>
-            <div className="hero-image-wrapper">
-              <img className="hero-blobs" src={blobs} alt="blobs" />
-            </div>
+            {!isMobileView && (
+              <div className="hero-image-wrapper">
+                <img className="hero-blobs" src={blobs} alt="blobs" />
+              </div>
+            )}
           </div>
         </section>
       </main>

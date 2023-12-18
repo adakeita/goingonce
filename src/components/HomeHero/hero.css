@@ -71,7 +71,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 680px) {
     .hero-section {
         flex-direction: column;
         margin: 0 0.7em;
@@ -108,7 +108,7 @@
     }
 
     .hero-image-wrapper {
-        width: 100%;
+        width: 70%;
         margin: 1.5em auto;
     }
 }
