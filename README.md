@@ -47,7 +47,7 @@ cd [goingtwice]
 This repository includes a comprehensive suite of end-to-end (E2E) tests for our web application, focusing on critical user journeys and interactions. These tests ensure the application functions reliably and as expected from a user's perspective.
 
 ## Tools Used
-- **Cypress**: Our primary tool for end-to-end testing, offering an intuitive framework for simulating real user interactions within a browser environment.
+- **Cypress**: The primary tool for end-to-end testing, offering an intuitive framework for simulating real user interactions within a browser environment.
 
 ## Key Test Features
 
