@@ -1,21 +1,21 @@
 .singlelisting-card {
     margin: 0 auto;
-    background-color: #ffdfc852;
     min-height: 100vh;
+    background-color: #ffdfc852;
     border: 1px solid #0f766e;
 }
 
 .singlelisting-content {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    width: 100%;
     justify-content: space-around;
 }
 
 .singlelisting-title-seller-bids {
+    height: 6em;
     display: flex;
     flex-direction: column;
-    height: 6em;
     justify-content: space-around;
 }
 
@@ -25,8 +25,8 @@
 }
 
 .singlelisting-img-wrapper {
-    max-width: 50%;
     height: 100vh;
+    max-width: 50%;
 }
 
 .singlelisting-img {
@@ -39,13 +39,13 @@
 }
 
 .singlelisting-info-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     width: 45%;
     max-width: 415px;
     margin: 0 auto;
     padding: 0px 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .description-wrapper h3 {
@@ -56,32 +56,32 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-around;
     background-color: #f44336;
     color: white;
-    justify-content: space-around;
+    text-transform: lowercase;
     border-radius: 0px 0px 5px 5px;
-    box-shadow: 1px 2px 0px 0px #b09a6185;
     border-bottom: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
-    text-transform: lowercase;
+    box-shadow: 1px 2px 0px 0px #b09a6185;
 }
 
 .item-description {
-    background: white;
-    padding: 1.5em 0.5em;
     margin: 10px auto 0px;
+    padding: 1.5em 0.5em;
+    background: white;
     border-radius: 5px 5px 0px 0px;
-    box-shadow: 1px 3px 0px 0px #b09a6185;
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
+    box-shadow: 1px 3px 0px 0px #b09a6185;
 }
 
 .seller-created-bids-wrapper {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    width: 100%;
     justify-content: space-between;
 }
 
@@ -90,12 +90,12 @@
 }
 
 .placebid-btn {
-    background: #008080;
     padding: 10px 15px;
     width: 35%;
-    border-radius: 10px;
+    background: #008080;
     color: white;
     text-align: center;
+    border-radius: 10px;
     box-shadow: 1px 1px 1px 1px #b09a6185;
     transition: all 0.3s ease-in-out;
 }
@@ -111,13 +111,13 @@
 
 @media screen and (max-width: 640px) {
     .singlelisting-content {
-        flex-direction: column;
         height: 100%;
+        flex-direction: column;
     }
 
     .singlelisting-img-wrapper {
-        max-width: 100%;
         height: 50vh;
+        max-width: 100%;
     }
 
     .singlelisting-img {
@@ -128,11 +128,11 @@
     }
 
     .singlelisting-info-wrapper {
+        height: 100%;
         width: 100%;
         max-width: 515px;
         margin: 20px auto;
         padding: 0px 1em;
-        height: 100%;
     }
 
     .singlelisting-title-seller-bids {

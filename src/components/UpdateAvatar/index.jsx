@@ -13,7 +13,7 @@ const UpdateAvatar = ({ userName, currentAvatar, onUpdateSuccess }) => {
       setUpdateError("");
       setAvatarUrl(""); // Clear input
       if (onUpdateSuccess) {
-        onUpdateSuccess(avatarUrl); // Callback to update parent state
+        onUpdateSuccess(avatarUrl); // Callback to parent state
       }
     } catch (error) {
       setUpdateError(error.message);

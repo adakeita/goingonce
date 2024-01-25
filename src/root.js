@@ -43,23 +43,11 @@ const profileRoute = new Route({
   component: ProfilePage,
 });
 
-/*const myProfileRoute = new Route({
-  getParentRoute: () => rootRoute,
-  path: "/profile",
-  component: ProfilePage,
-});*/
-
 const listingRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/listing",
   component: ListingPage,
 });
-
-/*const postRoute = new Route({
-  getParentRoute: () => rootRoute,
-  path: "/posts/$postId",
-  component: PostPage,
-});*/
 
 const routeTree = rootRoute.addChildren([
   indexRoute,

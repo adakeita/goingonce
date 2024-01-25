@@ -41,7 +41,7 @@ const UpdateListingForm = ({ listingData, onUpdateSuccess, token }) => {
         tags: formData.tags.split(",").map((tag) => tag.trim()),
       };
 
-      // Send data to the API
+      // Send data
       await updateListing(listingData.id, submitData, token);
       onUpdateSuccess(); // Callback for successful update
     } catch (err) {

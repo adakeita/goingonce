@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router}>
-        <App /> {/* Render the App component here */}
+        <App />
       </RouterProvider>
     </QueryClientProvider>
   </React.StrictMode>,

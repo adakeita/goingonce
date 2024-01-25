@@ -27,7 +27,7 @@ export const registerUser = async (userData) => {
       throw new Error(errorData.message || "Registration failed");
     }
 
-    return await response.json(); // If successful, return the user object
+    return await response.json(); // If successful, return the user
   } catch (error) {
     throw error;
   }

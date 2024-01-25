@@ -9,7 +9,7 @@ const Modal = ({ isOpen, onClose, children }) => {
       document.body.classList.remove("no-scroll");
     }
 
-    // Cleanup function to remove the class when the component unmounts
+    // Cleanup function to remove class
     return () => {
       document.body.classList.remove("no-scroll");
     };
